@@ -10,10 +10,10 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Schronisko {
+public class Shelter {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String name;
