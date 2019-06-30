@@ -4,6 +4,5 @@
 </head>
 <body>
 Tu powstaje nowy zwierzak.
-
 </body>
 </html>
