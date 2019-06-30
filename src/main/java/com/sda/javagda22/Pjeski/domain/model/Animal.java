@@ -26,5 +26,5 @@ public class Animal {
     private Boolean isAvalaibleToAdoption;
     private Boolean isAvailabraForAWalk;
 //    todo image
-
+//foty dodajemy w JSP
 }
