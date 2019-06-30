@@ -10,15 +10,16 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Schronisko {
+public class Pjeski {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer Id;
 
     private String name;
-    private String address;
-    private String city;
-    private String telephone;
-
+    private Integer age;
+    private String breed;
+    private Boolean lineage;
+    private String dateSinceInShelter;
+    private Boolean isAvalaible;
 }
