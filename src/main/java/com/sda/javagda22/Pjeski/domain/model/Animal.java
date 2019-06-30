@@ -14,12 +14,13 @@ public class Animal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
+    private Long Id;
 
     private String name;
     private Integer age;
     private String breed;
-    private Boolean lineage;
     private String dateSinceInShelter;
-    private Boolean isAvalaible;
+    private Boolean forAdoption;
+    private Boolean isLineage;
+    private Boolean isAvailable;
 }
