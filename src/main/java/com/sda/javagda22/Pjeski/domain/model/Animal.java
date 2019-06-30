@@ -20,11 +20,6 @@ public class Animal {
     private Integer age;
 //    age orientacyjnie
     private String breed;
-    private Boolean lineage;
     private String dateSinceInShelter;
-//    month & year przyjęcia do schroniska
-    private Boolean isAvalaibleToAdoption;
-    private Boolean isAvailabraForAWalk;
-//    todo image
 
 }

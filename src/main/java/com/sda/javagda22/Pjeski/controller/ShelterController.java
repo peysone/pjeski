@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Slf4j
 public class ShelterController {
 
-
     private final ShelterService shelterService;
+
+
 }
