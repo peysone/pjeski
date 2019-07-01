@@ -15,10 +15,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
+
     private String firstName;
     private String lastName;
     private String city;
-    private String adress;
+    private String address;
     private String postalCode;
     private String emailAdress;
 //    todo osiągnięcia za największe datki itp

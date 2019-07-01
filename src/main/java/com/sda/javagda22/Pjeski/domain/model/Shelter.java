@@ -23,4 +23,5 @@ public class Shelter {
     private String telephone;
     private String accountNumber;
 
+
 }
