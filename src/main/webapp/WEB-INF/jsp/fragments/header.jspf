@@ -1,0 +1,13 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h2>Pjeski application</h2>
+<a href="../animal/form">Dodaj zwierzaka</a>>
+<a href="../shelter/form">Dodaj schronisko</a>>
+</body>
+</html>

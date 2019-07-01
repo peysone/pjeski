@@ -17,8 +17,9 @@ public class Animal {
     private Long Id;
 
     private String name;
+    //    age orientacyjnie
     private Integer age;
-//    age orientacyjnie
+    private AnimalType type;
     private String breed;
     private String dateSinceInShelter;
 
