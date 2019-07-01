@@ -9,7 +9,6 @@
 <body>
 <h2>Dodaj zwierzę:</h2>
 
-<%--@elvariable id="animal" type=""--%>
 <form:form action="/animal/create" method="POST" modelAttribute="animal">
     Imię: <form:input path="name"/> <br />
     Wiek: <form:input path="age"/> <br />
