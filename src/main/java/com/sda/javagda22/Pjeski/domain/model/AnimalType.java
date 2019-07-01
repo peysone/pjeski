@@ -9,5 +9,6 @@ public enum AnimalType {
     KROKODYL,
     ALIGATOR,
     SWINKA_MORSKA,
-    SZYNSZYLA
+    SZYNSZYLA,
+    LENIWIEC
 }
