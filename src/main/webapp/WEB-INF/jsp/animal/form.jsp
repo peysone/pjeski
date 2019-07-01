@@ -16,6 +16,7 @@
     Rasa: <form:input path="breed"/> <br />
     Od kiedy w schronisku: <form:input path="dateSinceInShelter"/> <br />
 
+
     <input type="submit" value="Dodaj"/>
 </form:form>
 </body>
