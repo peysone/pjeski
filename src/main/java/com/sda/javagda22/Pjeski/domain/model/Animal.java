@@ -18,9 +18,8 @@ public class Animal {
 
     private String name;
     private Integer age;
+//    age orientacyjnie
     private String breed;
     private String dateSinceInShelter;
-    private Boolean forAdoption;
-    private Boolean isLineage;
-    private Boolean isAvailable;
+
 }

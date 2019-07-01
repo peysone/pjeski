@@ -18,7 +18,10 @@ public class Shelter {
 
     private String name;
     private String address;
+    private String postalCode;
     private String city;
     private String telephone;
+    private String accountNumber;
+
 
 }
