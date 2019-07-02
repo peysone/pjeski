@@ -17,10 +17,15 @@ public class Animal {
     private Long Id;
 
     private String name;
-    //    age orientacyjnie
     private Integer age;
-    private AnimalType type;
+//    age orientacyjnie
     private String breed;
+    private Boolean lineage;
     private String dateSinceInShelter;
+//    month & year przyjęcia do schroniska
+    private Boolean isAvalaibleToAdoption;
+    private Boolean isAvailabraForAWalk;
+//    todo image
+    private AnimalType animalType;
 
 }

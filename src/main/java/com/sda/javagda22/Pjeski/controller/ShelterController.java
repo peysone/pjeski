@@ -8,7 +8,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -19,9 +23,23 @@ public class ShelterController {
     private final ShelterService shelterService;
 
     @GetMapping("/create")
-    public String createAnimal(Model model){
+    public String createShelter(Model model){
         model.addAttribute("shelter", new Shelter());
         return "shelter/form";
+    }
+
+    @PostMapping("/create")
+    public String createShelter(@ModelAttribute("shelter") Shelter shelter) {
+        shelterService.createShelter(shelter);
+        log.info("Created new shelter {}", shelter);
+        return "redirect:/shelter/list";
+    }
+
+    @GetMapping("/list")
+    public String shelterList(Model model) {
+        List<Shelter> shelters = shelterService.getAllShelters();
+        model.addAttribute("shelters", shelters);
+        return "shelter/list";
     }
 
 }

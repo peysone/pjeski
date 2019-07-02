@@ -13,7 +13,7 @@
     Adres: <form:input path="address"/> <br />
     Kod pocztowy: <form:input path="postalCode"/> <br />
     Miasto: <form:input path="city"/> <br />
-    Telephone: <form:input path="telephone"/> <br />
+    Numer telefonu: <form:input path="telephone"/> <br />
     Numer konta bankowego: <form:input path="accountNumber"/> <br />
     <input type="submit" value="Dodaj"/>
 </form:form>

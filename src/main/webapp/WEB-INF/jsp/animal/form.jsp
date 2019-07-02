@@ -12,7 +12,7 @@
 <form:form action="/animal/create" method="POST" modelAttribute="animal">
     Imię: <form:input path="name"/> <br />
     Wiek: <form:input path="age"/> <br />
-    Gatunek: <form:input path="type"/> <br/>
+    Gatunek: <form:input path="animalType"/> <br/>
     Rasa: <form:input path="breed"/> <br />
     Od kiedy w schronisku: <form:input path="dateSinceInShelter"/> <br />
     <input type="submit" value="Dodaj"/>
