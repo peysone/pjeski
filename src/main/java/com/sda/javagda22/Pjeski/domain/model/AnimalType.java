@@ -10,5 +10,8 @@ public enum AnimalType {
     ALIGATOR,
     SWINKA_MORSKA,
     SZYNSZYLA,
-    LENIWIEC
+    LENIWIEC,
+    CHOMIK,
+
+//    wg mnie to wszystko powinno być in English
 }

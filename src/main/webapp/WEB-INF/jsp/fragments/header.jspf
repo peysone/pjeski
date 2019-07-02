@@ -7,7 +7,8 @@
 </head>
 <body>
 <h2>Pjeski application</h2>
-<a href="../animal/form">Dodaj zwierzaka</a>>
-<a href="../shelter/form">Dodaj schronisko</a>>
+<a href="../">Start</a>
+<a href="../animal/create">Dodaj zwierzaka</a>
+<a href="../shelter/create">Dodaj schronisko</a>
 </body>
 </html>

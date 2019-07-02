@@ -7,7 +7,9 @@
     <title>Shelter creator</title>
 </head>
 <body>
+<%@include file="../fragments/header.jspf"%>
 <h2>Formularz dodawania schroniska:</h2>
+<%--@elvariable id="shelter" type="com.sda.javagda22.Pjeski.domain.model.Shelter"--%>
 <form:form action="/shelter/create" method="POST" modelAttribute="shelter">
     Nazwa schroniska: <form:input path="name"/> <br />
     Adres: <form:input path="address"/> <br />
@@ -17,6 +19,7 @@
     Numer konta bankowego: <form:input path="accountNumber"/> <br />
     <input type="submit" value="Dodaj"/>
 </form:form>
+<%@include file="../fragments/footer.jspf"%>
 </body>
 </html>
 

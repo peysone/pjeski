@@ -22,6 +22,11 @@ public class ShelterController {
 
     private final ShelterService shelterService;
 
+    @GetMapping("/")
+    public String index(){
+        return "index";
+    }
+
     @GetMapping("/create")
     public String createShelter(Model model){
         model.addAttribute("shelter", new Shelter());
