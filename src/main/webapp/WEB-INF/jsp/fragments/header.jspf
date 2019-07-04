@@ -7,9 +7,10 @@
 </head>
 <body>
 <h2>Pjeski application</h2>
-<a href="../">Start</a>
-<a href="../animal/create">Dodaj zwierzaka</a>
-<a href="../shelter/create">Dodaj schronisko</a>
-<a href="../shelter/find-by-city">Szukaj schronisko</a>
+<a href="/">Start</a>
+
+<a href="/shelter/create">Dodaj schronisko</a>
+<a href="/shelter/find-by-city">Szukaj schronisko</a>
+<a href="/shelter/list">Lista schronisk</a>
 </body>
 </html>

@@ -13,7 +13,7 @@
 <c:forEach items="${animals}" var="animal">
     Imię: ${animal.name} <br />
     Wiek: ${animal.age} <br />
-    Rodzaj: ${animal.type} <br /> <%--gatunek -> rodzaj--%>
+    Gatunek: ${animal.type} <br />
     Rasa: ${animal.breed} <br />
     <br/><br/>
 </c:forEach>

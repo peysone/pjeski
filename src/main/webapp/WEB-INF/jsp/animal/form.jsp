@@ -19,7 +19,12 @@ chyba że najpierw sprawdzi czy już jest schronisko - rozumiem że to menu jest
     Rodzaj: <form:input path="animalType"/> <br/> <%--zamiast gatunek -> rodzaj, bo lepiej brzmi--%>
     Rasa: <form:input path="breed"/> <br />
     Od kiedy w schronisku: <form:input path="dateSinceInShelter"/> <br />
+<%--dodawanie obrazka czysty html--%>
+    <%--<form action="..." enctype="multipart/form-data">--%>
+        <%--<input type="file" name="nazwa" accept="image/jpeg,image/gif">--%>
+    <%--</form>--%>
     <input type="submit" value="Dodaj"/>
+
 </form:form>
 <%@include file="../fragments/footer.jspf"%>
 </body>
