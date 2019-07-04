@@ -15,12 +15,19 @@ public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-
+    private String identificationNumber;
+//    nr identyfikacyjny w schronisku - może też być nr chipa
+    private String description;
     private String name;
-    private Integer age;
+    private Integer estimateAge;
+//    age orientacyjnie
     private String breed;
+    private Boolean isPurebred;
     private String dateSinceInShelter;
-    private Boolean forAdoption;
-    private Boolean isLineage;
-    private Boolean isAvailable;
+//    month & year przyjęcia do schroniska
+    private Boolean isAvalaibleToAdoption;
+    private Boolean isAvailabraForAWalk;
+//    todo image
+    private AnimalType animalType;
+
 }
