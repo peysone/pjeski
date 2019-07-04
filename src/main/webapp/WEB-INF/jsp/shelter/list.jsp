@@ -8,8 +8,15 @@
     <title>Shelter list</title>
 </head>
 <body>
-<jsp:include page="../fragments/header.jspf"/>
+<%@include file="../fragments/header.jspf"%>
 <h2>Lista schronisk:</h2>
+
+<c:if test="${empty shelters}">
+    <h3>Nie znaleziono schroniska!</h3>
+</c:if>
+
+
+
 <c:forEach items="${shelters}" var="shelter">
     Nazwa schroniska: ${shelter.name} <br />
     Adres: ${shelter.address} <br />
@@ -17,8 +24,17 @@
     Miasto: ${shelter.city} <br />
     Numer telefonu: ${shelter.telephone} <br />
     Numer konta bankowego: ${shelter.accountNumber} <br />
+    <a href="/animal/create/${shelter.id}">Dodaj zwierzę</a>
     <br/><br/>
+
+    <c:forEach items="${shelter.animals}" var="animal">
+        Imię: ${animal.name}<br />
+    </c:forEach>
+
 </c:forEach>
-<jsp:include page="../fragments/footer.jspf"/>
+<%@include file="../fragments/footer.jspf"%>
 </body>
 </html>
+
+
+

@@ -10,5 +10,6 @@
 <a href="../">Start</a>
 <a href="../animal/create">Dodaj zwierzaka</a>
 <a href="../shelter/create">Dodaj schronisko</a>
+<a href="../shelter/find-by-city">Szukaj schronisko</a>
 </body>
 </html>
