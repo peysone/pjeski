@@ -53,15 +53,18 @@ public class ShelterController {
     @GetMapping("/find-by-city")
     public String findByLastNameForm(Model model) {
         model.addAttribute("filterForm", new FilterForm());
+//        model.addAttribute("cities", shelterService.)
         return "shelter/find";
     }
 
     @PostMapping("/find-by-city")
     public String findShelterForm(@ModelAttribute("filterForm") FilterForm filterForm,
-                                     Model model) {
+                                  Model model) {
         List<Shelter> shelters = shelterService.findSheltersByCityContaining(filterForm.getCity());
         model.addAttribute("shelters", shelters);
         return "shelter/list";
     }
+
+
 
 }
