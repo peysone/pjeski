@@ -30,10 +30,11 @@
 </form:select> <br/>
     Rasa: <form:input path="breed"/> <br/>
     Od kiedy w schronisku: <form:input path="dateSinceInShelter"/> <br/>
-    <form:hidden path="id"/>
     Czy rasowy: <form:checkbox path="isPurebred"/> <br/>
     Czy do adopcji: <form:checkbox path="isAvalaibleToAdoption"/> <br/>
     Czy dostepny na spacer: <form:checkbox path="isAvailabraForAWalk"/> <br/>
+    <form:hidden path="id" />
+    <form:hidden path="shelter.id" />
 
     <input type="submit" value="Zapisz zmiany"/>
     <a href="/animal/list">Odrzuć zmiany</a>
