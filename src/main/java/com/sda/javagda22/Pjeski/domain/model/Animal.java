@@ -19,7 +19,7 @@ public class Animal {
 //    nr identyfikacyjny w schronisku - może też być nr chipa
     private String description;
     private String name;
-    private Integer estimateAge;
+    private Integer estimatedAge;
 //    age orientacyjnie
     private String breed;
     private Boolean isPurebred;
