@@ -11,7 +11,7 @@
 
 </head>
 <body>
-
+<%@include file="fragments/header.jspf"%>
 <h2><% out.print("Witaj w aplikacji pJeski - co chcesz zrobić?");%></h2>
 <a href="/shelter/create">Dodaj schronisko</a><br>
 
