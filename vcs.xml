@@ -40,6 +40,6 @@
         </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="$USER_HOME$/IdeaProjects_old/IdeaProjects" />
+    <option name="cloneParentDir" value="$USER_HOME$" />
   </component>
 </application>
