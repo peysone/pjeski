@@ -21,7 +21,7 @@ public class User {
     private String city;
     private String address;
     private String postalCode;
-    private String emailAdress;
+    private String emailAddress;
 //    todo osiągnięcia za największe datki itp
 //    todo logowanie
 //    - tylko login widoczny dla innych w HallOfFame z powodu RODO itp
