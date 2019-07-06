@@ -9,6 +9,7 @@
 </head>
 <body>
 <h2>Edycja zwierzaka</h2>
+<%@include file="../fragments/header.jspf" %>
 <form:form action="/animal/edit/${animal.id}" method="POST" modelAttribute="animal">
     Id: <c:out value="${animal.id}"/> <br/>
     Imię: <form:input path="name"/> <br/>
@@ -20,5 +21,6 @@
     <input type="submit" value="Zapisz zmiany"/>
     <input type="reset" value="Odrzuć zmiany"/>
 </form:form>
+<%@include file="../fragments/footer.jspf" %>
 </body>
 </html>

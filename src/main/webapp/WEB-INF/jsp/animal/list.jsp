@@ -8,15 +8,18 @@
     <title>Animal list</title>
 </head>
 <body>
-<jsp:include page="../fragments/header.jspf"/>
+<%@include file="../fragments/header.jspf" %>
 <h2>Lista zwierzaków:</h2>
 <c:forEach items="${animals}" var="animal">
     Imię: ${animal.name} <br/>
-    Wiek: ${animal.age} <br/>
-    Gatunek: ${animal.type} <br/>
+    Wiek: ${animal.estimatedAge} <br/>
+    Opis: ${animal.description} <br/>
+    Gatunek: ${animal.animalType} <br/>
     Rasa: ${animal.breed} <br/>
+    Do adopcji: ${animal.isAvalaibleToAdoption} <br/>
+
     <br><br>
 </c:forEach>
-<jsp:include page="../fragments/footer.jspf"/>
+<%@include file="../fragments/footer.jspf" %>
 </body>
 </html>

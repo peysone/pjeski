@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
@@ -25,7 +25,8 @@
 <%!
     private int visitCount = 0;
 %>
-<h2>Ilosc odwiedzin strony: <%= ++visitCount%></h2><br><br>
+<h2>Ilosc odwiedzin strony: <%= ++visitCount%>
+</h2><br><br>
 <form action="...">
     <select name="nazwa">
         <option>Tu wpisz pierwszą możliwość</option>
@@ -33,6 +34,6 @@
 
     </select>
 </form>
-<%@include file="fragments/footer.jspf"%>
+<%@include file="fragments/footer.jspf" %>
 </body>
 </html>
