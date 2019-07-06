@@ -1,5 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="pl">
@@ -11,13 +11,14 @@
 <%@include file="../fragments/header.jspf" %>
 <h2>Lista zwierzaków:</h2>
 <c:forEach items="${animals}" var="animal">
-    Imię: ${animal.name} <br/>
+    ${animal.animalType} ${animal.name} <br/>
     Wiek: ${animal.estimatedAge} <br/>
+    Płeć: ${animal.animalSex} <br/>
     Opis: ${animal.description} <br/>
-    Gatunek: ${animal.animalType} <br/>
     Rasa: ${animal.breed} <br/>
     Do adopcji: ${animal.isAvalaibleToAdoption} <br/>
-
+    <a href="/animal/edit/${animal.id}">Edycja zwierzaka</a>
+    <a href="/animal/delete/${animal.id}">Usun zwierzaka</a>
     <br><br>
 </c:forEach>
 <%@include file="../fragments/footer.jspf" %>

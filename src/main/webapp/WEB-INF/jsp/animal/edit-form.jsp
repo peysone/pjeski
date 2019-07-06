@@ -13,13 +13,21 @@
 <form:form action="/animal/edit/${animal.id}" method="POST" modelAttribute="animal">
     Id: <c:out value="${animal.id}"/> <br/>
     Imię: <form:input path="name"/> <br/>
-    Wiek: <form:input path="age"/> <br/>
-    Gatunek: <form:input path="type"/> <br/>
+    Wiek: <form:input path="estimatedAge"/> <br/>
+    Rodzaj: <form:select path="animalType">
+    <option>PIES</option>
+    <option>KOT</option>
+    <option>INNE</option>
+</form:select> <br/>
     Rasa: <form:input path="breed"/> <br/>
     Od kiedy w schronisku: <form:input path="dateSinceInShelter"/> <br/>
     <form:hidden path="id"/>
     <input type="submit" value="Zapisz zmiany"/>
-    <input type="reset" value="Odrzuć zmiany"/>
+    <a href="/animal/list">Odrzuć zmiany</a>
+
+<%--    Robi to samo co <a href="/animal/list">Odrzuć zmiany</a> tylko ze jest jako button--%>
+    <%--    <input type="button" value="Odrzuć zmiany"--%>
+    <%--           onclick="window.location.href='/animal/list'"/>--%>
 </form:form>
 <%@include file="../fragments/footer.jspf" %>
 </body>

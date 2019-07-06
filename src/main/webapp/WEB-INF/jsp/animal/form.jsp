@@ -14,7 +14,7 @@
 <p>oczywiście najpierw musimy dodać schronisko więc w menu nie powinno być tak że od razu widać dodaj zwierzaka <br>
     chyba że najpierw sprawdzi czy już jest schronisko - rozumiem że to menu jest tylko dla nas żeby sprawdzić czy
     wszystko działą</p>
-<%--@elvariable id="animal" type="com.sda.javagda22.Pjeski.domain.model.Animal"--%>
+<%--@elvariable id="animal" type="com.sda.javagda22.Pjeski.domain.model.animal.Animal"--%>
 <form:form action="/animal/create/${shelterId}" method="POST" modelAttribute="animal">
     Imię: <form:input path="name"/> <br/>
     Wiek: <form:input path="estimatedAge"/> <br/>
@@ -22,6 +22,11 @@
     <option>PIES</option>
     <option>KOT</option>
     <option>INNE</option>
+</form:select>
+    Płeć: <form:select path="animalSex">
+    <option>SAMIEC</option>
+    <option>SAMICA</option>
+    <option>MŁODE</option>
 </form:select>
 
     <br/> <%--zamiast gatunek -> rodzaj, bo lepiej brzmi--%>

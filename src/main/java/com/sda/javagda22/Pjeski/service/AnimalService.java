@@ -1,6 +1,6 @@
 package com.sda.javagda22.Pjeski.service;
 
-import com.sda.javagda22.Pjeski.domain.model.Animal;
+import com.sda.javagda22.Pjeski.domain.model.animal.Animal;
 import com.sda.javagda22.Pjeski.domain.model.Shelter;
 import com.sda.javagda22.Pjeski.domain.repository.AnimalRepository;
 import lombok.RequiredArgsConstructor;

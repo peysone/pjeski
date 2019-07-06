@@ -1,6 +1,6 @@
 package com.sda.javagda22.Pjeski.controller;
 
-import com.sda.javagda22.Pjeski.domain.model.Animal;
+import com.sda.javagda22.Pjeski.domain.model.animal.Animal;
 import com.sda.javagda22.Pjeski.service.AnimalService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -69,8 +69,7 @@ public class AnimalController {
         return "animal/list";
     }
 
-
-    @GetMapping("/delete{id}")
+    @GetMapping("/delete/{id}")
     public String deleteAnimalById(@PathVariable("id")Long id){
         animalService.deleteById(id);
         return "redirect:/animal/list";
