@@ -18,12 +18,14 @@
 
 
 <c:forEach items="${shelters}" var="shelter">
-    Nazwa schroniska: ${shelter.name} <br />
-    Adres: ${shelter.address} <br />
-    Kod pocztowy: ${shelter.postalCode} <br />
-    Miasto: ${shelter.city} <br />
-    Numer telefonu: ${shelter.telephone} <br />
-    Numer konta bankowego: ${shelter.accountNumber} <br />
+    <br>
+    <br>
+    Nazwa schroniska: ${shelter.name} <br/>
+    Adres: ${shelter.address} <br/>
+    Kod pocztowy: ${shelter.postalCode} <br/>
+    Miasto: ${shelter.city} <br/>
+    Numer telefonu: ${shelter.telephone} <br/>
+    Numer konta bankowego: ${shelter.accountNumber} <br/>
     <a href="/animal/create/${shelter.id}">Dodaj zwierzę</a>
     <br/><br/>
 

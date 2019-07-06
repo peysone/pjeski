@@ -4,6 +4,7 @@ import com.sda.javagda22.Pjeski.domain.model.Animal;
 import com.sda.javagda22.Pjeski.service.AnimalService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import java.util.Optional;
 @Slf4j
 public class AnimalController {
 
+    @Autowired
     private final AnimalService animalService;
 
     // Szuca - od teraz animala dodajemy od razu do schroniska, ponieważ bez sensu jest dodawać go bez przypisania do schroniska
@@ -66,5 +68,13 @@ public class AnimalController {
         model.addAttribute("animals", animals);
         return "animal/list";
     }
+
+
+    @GetMapping("/delete{id}")
+    public String deleteAnimalById(@PathVariable("id")Long id){
+        animalService.deleteById(id);
+        return "redirect:/animal/list";
+    }
+
 
 }

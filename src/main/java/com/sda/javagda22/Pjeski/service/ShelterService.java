@@ -20,6 +20,7 @@ public class ShelterService {
     }
 
     public List<Shelter> getAllShelters() {
+        System.out.println(shelterRepository.findAllCities());
         return shelterRepository.findAll();
     }
 
