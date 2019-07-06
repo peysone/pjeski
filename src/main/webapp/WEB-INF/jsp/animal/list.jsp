@@ -11,11 +11,11 @@
 <jsp:include page="../fragments/header.jspf"/>
 <h2>Lista zwierzaków:</h2>
 <c:forEach items="${animals}" var="animal">
-    Imię: ${animal.name} <br />
-    Wiek: ${animal.age} <br />
-    Gatunek: ${animal.type} <br />
-    Rasa: ${animal.breed} <br />
-    <br/><br/>
+    Imię: ${animal.name} <br/>
+    Wiek: ${animal.age} <br/>
+    Gatunek: ${animal.type} <br/>
+    Rasa: ${animal.breed} <br/>
+    <br><br>
 </c:forEach>
 <jsp:include page="../fragments/footer.jspf"/>
 </body>

@@ -13,13 +13,18 @@
 <p>oczywiście najpierw musimy dodać schronisko więc w menu nie powinno być tak że od razu widać dodaj zwierzaka <br>
 chyba że najpierw sprawdzi czy już jest schronisko - rozumiem że to menu jest tylko dla nas żeby sprawdzić czy wszystko działą</p>
 <%--@elvariable id="animal" type="com.sda.javagda22.Pjeski.domain.model.Animal"--%>
-<form:form action="/animal/create" method="POST" modelAttribute="animal">
+<form:form action="/animal/create/${shelterId}" method="POST" modelAttribute="animal">
     Imię: <form:input path="name"/> <br />
-    Wiek: <form:input path="estimateAge"/> <br />
-    Gatunek: <form:input path="animalType"/> <br/>
+    Wiek: <form:input path="estimatedAge"/> <br />
+    Rodzaj: <form:input path="animalType"/> <br/> <%--zamiast gatunek -> rodzaj, bo lepiej brzmi--%>
     Rasa: <form:input path="breed"/> <br />
     Od kiedy w schronisku: <form:input path="dateSinceInShelter"/> <br />
+<%--dodawanie obrazka czysty html--%>
+    <%--<form action="..." enctype="multipart/form-data">--%>
+        <%--<input type="file" name="nazwa" accept="image/jpeg,image/gif">--%>
+    <%--</form>--%>
     <input type="submit" value="Dodaj"/>
+
 </form:form>
 <%@include file="../fragments/footer.jspf"%>
 </body>

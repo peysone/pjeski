@@ -3,10 +3,8 @@ package com.sda.javagda22.Pjeski.domain.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -22,6 +20,10 @@ public class Shelter {
     private String city;
     private String telephone;
     private String accountNumber;
+
+    // Szuca - dodana relacja do animala
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "shelter", cascade = CascadeType.ALL)
+    private List<Animal> animals;
 
 
 }
