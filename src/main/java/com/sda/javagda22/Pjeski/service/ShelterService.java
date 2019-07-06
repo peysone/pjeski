@@ -33,4 +33,9 @@ public class ShelterService {
         return shelterRepository.findById(id);
     }
 
+//    public List<Shelter> getShelterByCity (String city) {return shelterRepository.findSheltersByCityContaining(city);}
+
+    public List<String> findAllCities() {
+       return shelterRepository.findAllCities();
+    }
 }

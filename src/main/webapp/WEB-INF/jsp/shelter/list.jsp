@@ -30,7 +30,10 @@
     <br/><br/>
 
     <c:forEach items="${shelter.animals}" var="animal">
+        Schronisko: ${shelter.name}<br />
         Imię: ${animal.name}<br />
+        Rodzaj: ${animal.animalType}<br />
+        <a href="/animal/edit/${animal.id}">Edytuj zwierzę</a><br />
     </c:forEach>
 
 </c:forEach>
