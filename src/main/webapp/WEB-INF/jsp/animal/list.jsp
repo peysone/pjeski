@@ -16,6 +16,7 @@
     Płeć: ${animal.animalSex} <br/>
     Opis: ${animal.description} <br/>
     Rasa: ${animal.breed} <br/>
+    Misto: ${animal.shelter.city}<br/>
     Do adopcji: ${animal.isAvalaibleToAdoption} <br/>
     <a href="/animal/edit/${animal.id}">Edycja zwierzaka</a>
     <a href="/animal/delete/${animal.id}">Usun zwierzaka</a>
