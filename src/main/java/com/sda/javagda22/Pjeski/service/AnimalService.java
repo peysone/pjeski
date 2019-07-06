@@ -42,4 +42,10 @@ public class AnimalService {
         shelter.ifPresent(animal::setShelter);
         animalRepository.save(animal);
     }
+
+    public List<Animal> getAnimalsByShelterCity(String city) {
+        return animalRepository.findAnimalByShelter_City(city);
+    }
+
+
 }
