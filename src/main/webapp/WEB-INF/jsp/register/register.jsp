@@ -12,7 +12,7 @@
     <%--<title><s:message code="menu.register"/></title>--%>
 </head>
 <body>
-<%@include file="fragments/header.jspf"%>
+<%@include file="../fragments/header.jspf"%>
 
 <h2 align="center"><s:message code="menu.register"/></h2>
 

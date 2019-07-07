@@ -33,7 +33,7 @@ public class ShelterService {
         return shelterRepository.findById(id);
     }
 
-    public List<Shelter> findShelterByCity(String city){
-        return shelterRepository.findSheltersByCityContaining(city);
+    public List<String> getAllCities() {
+        return shelterRepository.findAllCities();
     }
 }

@@ -18,7 +18,7 @@ public class UserController {
     private UserServiceInterface userServiceInterface;
 
     @GetMapping("/profil")
-    public String showUserProfilePage(Model model){
+    public String showUserProfilePage(Model model) {
         String userName = UserUtilities.getLoggedUser();
 
         User user = userServiceInterface.findUserByEmail(userName);
@@ -26,12 +26,12 @@ public class UserController {
         int roleNr = user.getRoles().iterator().next().getId();
         user.setRoleNr(roleNr);
         model.addAttribute("user", user);
-        return "profil";
+        return "user/profil";
 
     }
 
     @GetMapping(value = "/login-user")
     public String showLoginPage() {
-        return "login-user";
+        return "user/login-user";
     }
 }

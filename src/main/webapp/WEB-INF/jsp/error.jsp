@@ -15,7 +15,7 @@
                 style="color:#8b00ff;">b</span><span style="color:#ff0000;">a</span><span
                 style="color:#ff4000;">ł</span><span style="color:#ff7f00;">o</span></div>
     </h1>
-    <img src="<c:url value="../../resources/img/crying.jpg"/>"/>
+    <img src="<c:url value="../../../resources/static/images/crying.jpg"/>"/>
 
 </center>
 <%@include file="./fragments/footer.jspf"%>

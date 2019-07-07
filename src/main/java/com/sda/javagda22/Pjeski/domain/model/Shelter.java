@@ -26,5 +26,4 @@ public class Shelter {
     private List<Animal> animals;
 
 
-
 }
