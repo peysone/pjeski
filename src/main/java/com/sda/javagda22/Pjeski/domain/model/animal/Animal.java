@@ -24,7 +24,7 @@ public class Animal {
     private Boolean isAvailabraForAWalk;
     private AnimalType animalType;
     private AnimalSex animalSex;
-
+    private Integer weight;
     @ManyToOne
     private Shelter shelter;
 
