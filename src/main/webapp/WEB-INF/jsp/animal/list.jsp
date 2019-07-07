@@ -21,7 +21,7 @@
     Do adopcji: ${animal.isAvalaibleToAdoption} <br/>
     <a href="/animal/edit/${animal.id}">Edycja zwierzaka</a>
     <a href="/animal/delete/${animal.id}">Usun zwierzaka</a>
-    <br><br>
+    <br> <br>
 </c:forEach>
 <%@include file="../fragments/footer.jspf" %>
 </body>
