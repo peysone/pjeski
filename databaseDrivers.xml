@@ -75,6 +75,10 @@
     <driver id="h2.unified">
       <artifact name="H2" use="true" />
       <option name="auto-sync" value="true" />
+      <option name="auto-commit" value="true" />
+      <option name="send-app-info" value="true" />
+      <option name="schema-control" value="AUTOMATIC" />
+      <code-style-scheme-name>Default</code-style-scheme-name>
     </driver>
     <driver id="sqlite.xerial">
       <artifact name="Xerial SQLiteJDBC" use="true" />
