@@ -6,4 +6,5 @@ public enum AnimalType {
     INNE
 
 //    wg mnie to wszystko powinno być in English
+    // tak
 }

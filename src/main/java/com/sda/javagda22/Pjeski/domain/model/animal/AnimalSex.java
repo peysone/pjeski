@@ -4,4 +4,8 @@ public enum AnimalSex {
     SAMIEC,
     SAMICA,
     MŁODE
+
+//    FEMALE,
+//    MALE,
+//    YOUNG
 }

@@ -4,7 +4,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Shelter creator</title>
+    <title>Dodawanie schroniska</title>
 </head>
 <body>
 <%@include file="../fragments/header.jspf"%>

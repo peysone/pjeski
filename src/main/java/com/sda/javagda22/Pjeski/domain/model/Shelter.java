@@ -23,7 +23,7 @@ public class Shelter {
     private String accountNumber;
 
     // Szuca - dodana relacja do animala
-    @OneToMany(mappedBy = "shelter")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "shelter")
     private List<Animal> animals;
 
 

@@ -10,6 +10,9 @@ import java.util.List;
 public interface ShelterRepository extends JpaRepository<Shelter, Long> {
 
     List<Shelter> findSheltersByCityContaining(String city);
-    @Query("SELECT distinct s.city from Shelter s")
+
+    @Query("SELECT DISTINCT s.city FROM Shelter s")
     List<String> findAllCities();
+
+
 }

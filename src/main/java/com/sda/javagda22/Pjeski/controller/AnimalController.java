@@ -1,9 +1,14 @@
 package com.sda.javagda22.Pjeski.controller;
 
+import com.sda.javagda22.Pjeski.domain.model.FilterForm;
+import com.sda.javagda22.Pjeski.domain.model.Shelter;
 import com.sda.javagda22.Pjeski.domain.model.animal.Animal;
+import com.sda.javagda22.Pjeski.domain.repository.ShelterRepository;
 import com.sda.javagda22.Pjeski.service.AnimalService;
+import com.sda.javagda22.Pjeski.service.ShelterService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +22,14 @@ import java.util.Optional;
 @Slf4j
 public class AnimalController {
 
+    @Autowired
     private final AnimalService animalService;
+    private final ShelterService shelterService;
 
     // Szuca - od teraz animala dodajemy od razu do schroniska, ponieważ bez sensu jest dodawać go bez przypisania do schroniska
     //więc posłużyłam sie kodem z kliniki i stworzyłam coś takiego i tu tylko cerate jest zmienione
     @GetMapping("/create/{shelterId}")
-    public String createAnimal(Model model, @PathVariable("shelterId") Long shelterId ) {
+    public String createAnimal(Model model, @PathVariable("shelterId") Long shelterId) {
         model.addAttribute("animal", new Animal());
         model.addAttribute("shelterId", shelterId);
         return "animal/form";
@@ -66,5 +73,26 @@ public class AnimalController {
         model.addAttribute("animals", animals);
         return "animal/list";
     }
+
+    @GetMapping("/delete/{id}")
+    public String deleteAnimalById(@PathVariable("id") Long id) {
+        animalService.deleteById(id);
+        return "redirect:/animal/list";
+    }
+
+    @GetMapping("/find-by-city")
+    public String findByLastNameForm(Model model) {
+        model.addAttribute("filterForm", new FilterForm());
+        return "animal/find";
+    }
+
+    @PostMapping("/find-by-city")
+    public String findAnimalForm(@ModelAttribute("filterForm") FilterForm filterForm,
+                                 Model model) {
+        List<Animal> animals = animalService.getAnimalsByShelterCity(filterForm.getCity());
+        model.addAttribute("animals", animals);
+        return "animal/list";
+    }
+
 
 }

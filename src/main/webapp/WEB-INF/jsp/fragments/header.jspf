@@ -35,6 +35,7 @@
 
 <a href="/shelter/create">Dodaj schronisko</a>
 <a href="/shelter/find-by-city">Szukaj schronisko</a>
+<a href="/animal/find-by-city">Szukaj zwierzaka</a>
 <a href="/shelter/list">Lista schronisk</a>
 <a href="/animal/list">Lista zwierzaków</a>
 </body>

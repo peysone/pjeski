@@ -1,31 +1,27 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/resources/css/div.css" />
-    <%--<spring:url value="/resources/css/div.css" var="divCss" />--%>
-    <%--<link href="${pageContext.request.contextPath}/resources/css/div.css" rel="stylesheet" type="text/css">--%>
     <title>Animal list</title>
 </head>
 <body>
-<jsp:include page="../fragments/header.jspf"/>
+<%@include file="../fragments/header.jspf" %>
 <h2>Lista zwierzaków:</h2>
-
-<div class="div1">
-
-    <c:forEach items="${animals}" var="animal">
-        Imię: ${animal.name} <br />
-        Wiek: ${animal.estimateAge} <br />
-        Gatunek: ${animal.animalType} <br />
-        Rasa: ${animal.breed} <br />
-        <br/><br/>
-    </c:forEach>
-
-</div>
-<jsp:include page="../fragments/footer.jspf"/>
+<c:forEach items="${animals}" var="animal">
+    ${animal.animalType} ${animal.name} <br/>
+    Wiek: ${animal.estimatedAge} <br/>
+    Płeć: ${animal.animalSex} <br/>
+    Opis: ${animal.description} <br/>
+    Rasa: ${animal.breed} <br/>
+    Misto: ${animal.shelter.city}<br/>
+    Do adopcji: ${animal.isAvalaibleToAdoption} <br/>
+    <a href="/animal/edit/${animal.id}">Edycja zwierzaka</a>
+    <a href="/animal/delete/${animal.id}">Usun zwierzaka</a>
+    <br><br>
+</c:forEach>
+<%@include file="../fragments/footer.jspf" %>
 </body>
 </html>
