@@ -8,4 +8,5 @@ import java.util.List;
 public interface AnimalRepository extends JpaRepository<Animal, Long> {
 
     List<Animal> findAnimalByShelter_City(String city);
+
 }
