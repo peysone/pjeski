@@ -16,6 +16,7 @@ public class Animal {
     private Long Id;
     private String identificationNumber; //    nr identyfikacyjny w schronisku - może też być nr chipa
     private String description;
+    private String pic;
     private String name;
     private Integer estimatedAge; // age orientacyjnie
     private String breed;

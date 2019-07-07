@@ -23,15 +23,24 @@
     <option>KOT</option>
     <option>INNE</option>
 </form:select>
+    <br>
     Płeć: <form:select path="animalSex">
     <option>SAMIEC</option>
     <option>SAMICA</option>
     <option>MŁODE</option>
 </form:select>
-
-    <br/> <%--zamiast gatunek -> rodzaj, bo lepiej brzmi--%>
-    Rasa: <form:input path="breed"/> <br/>
+    <br>
     Od kiedy w schronisku: <form:input path="dateSinceInShelter"/> <br/>
+    <br/> <%--zamiast gatunek -> rodzaj, bo lepiej brzmi--%>
+    Czy rasowy: <form:checkbox path="isPurebred"/> <br/>
+    Rasa: <form:input path="breed"/> <br/>
+
+    Opis: <form:input path="description"/> <br/>
+    Zdjęcie: <form:input path="pic"/><br/>
+    Czy do adopcji: <form:checkbox path="isAvalaibleToAdoption"/> <br/>
+    Czy dostepny na spacer: <form:checkbox path="isAvailabraForAWalk"/> <br/>
+
+
     <%--dodawanie obrazka czysty html--%>
     <%--<form action="..." enctype="multipart/form-data">--%>
     <%--<input type="file" name="nazwa" accept="image/jpeg,image/gif">--%>

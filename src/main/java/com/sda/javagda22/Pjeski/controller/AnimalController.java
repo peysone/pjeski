@@ -23,7 +23,7 @@ public class AnimalController {
     private final AnimalService animalService;
 
     // Szuca - od teraz animala dodajemy od razu do schroniska, ponieważ bez sensu jest dodawać go bez przypisania do schroniska
-    //więc posłużyłam sie kodem z kliniki i stworzyłam coś takiego i tu tylko cerate jest zmienione
+    //więc posłużyłam sie kodem z kliniki i stworzyłam coś takiego i tu tylko create jest zmienione
     @GetMapping("/create/{shelterId}")
     public String createAnimal(Model model, @PathVariable("shelterId") Long shelterId ) {
         model.addAttribute("animal", new Animal());
@@ -71,7 +71,7 @@ public class AnimalController {
     }
 
 
-    @GetMapping("/delete{id}")
+    @GetMapping("/delete/{id}")
     public String deleteAnimalById(@PathVariable("id")Long id){
         animalService.deleteById(id);
         return "redirect:/animal/list";
@@ -91,38 +91,38 @@ public class AnimalController {
         return "animal/list";
     }
 
-    @GetMapping("/filter-by-age")
-    public String filterByAgeForm(Model model) {
-        model.addAttribute("filterForm", new FilterForm());
-        return "animal/coś";
-        /*
-        trzeba dodać jsp = wiem że nie powinno tu byc coś,
-        tylko kolejny jsp, ale już nie mam sił na to, na dole to samo
-        Rudini
-         */
-    }
-
-    @PostMapping("/filter-by-age")
-    public String filterAnimalByAge(@ModelAttribute("filterForm") FilterForm filterForm,
-                                    Model model) {
-        List<Animal> animals = animalService.getAnimalByEstimatedAge(filterForm.getEstimatedAge());
-        model.addAttribute("animals", animals);
-        return "animal/list";
-    }
-
-    @GetMapping("/filter-by-weight")
-    public String filterAnimalByWeightForm(Model model) {
-        model.addAttribute("filterForm", new FilterForm());
-        return "animal/coś";
-    }
-
-    @PostMapping("/filter-by-weight")
-    public String filterAnimalByWeight(@ModelAttribute("filterForm") FilterForm filterForm,
-                                       Model model) {
-        List<Animal> animals = animalService.getAnimalByWeight(filterForm.getWeight());
-        model.addAttribute("animals", animals);
-        return "animal/list";
-    }
+//    @GetMapping("/filter-by-age")
+//    public String filterByAgeForm(Model model) {
+//        model.addAttribute("filterForm", new FilterForm());
+//        return "animal/coś";
+//        /*
+//        trzeba dodać jsp = wiem że nie powinno tu byc coś,
+//        tylko kolejny jsp, ale już nie mam sił na to, na dole to samo
+//        Rudini
+//         */
+//    }
+//
+//    @PostMapping("/filter-by-age")
+//    public String filterAnimalByAge(@ModelAttribute("filterForm") FilterForm filterForm,
+//                                    Model model) {
+//        List<Animal> animals = animalService.getAnimalByEstimatedAge(filterForm.getEstimatedAge());
+//        model.addAttribute("animals", animals);
+//        return "animal/list";
+//    }
+//
+//    @GetMapping("/filter-by-weight")
+//    public String filterAnimalByWeightForm(Model model) {
+//        model.addAttribute("filterForm", new FilterForm());
+//        return "animal/coś";
+//    }
+//
+//    @PostMapping("/filter-by-weight")
+//    public String filterAnimalByWeight(@ModelAttribute("filterForm") FilterForm filterForm,
+//                                       Model model) {
+//        List<Animal> animals = animalService.getAnimalByWeight(filterForm.getWeight());
+//        model.addAttribute("animals", animals);
+//        return "animal/list";
+//    }
 
     @GetMapping("/filter-by-type")
     public String filterAnimalsByType(Model model) {

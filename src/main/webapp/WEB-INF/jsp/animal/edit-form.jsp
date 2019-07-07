@@ -33,6 +33,7 @@
     Czy rasowy: <form:checkbox path="isPurebred"/> <br/>
     Czy do adopcji: <form:checkbox path="isAvalaibleToAdoption"/> <br/>
     Czy dostepny na spacer: <form:checkbox path="isAvailabraForAWalk"/> <br/>
+    Zdjęcię: <form:input path="pic"/> <br/>
     <form:hidden path="id" />
     <form:hidden path="shelter.id" />
 

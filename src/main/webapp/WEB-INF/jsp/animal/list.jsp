@@ -12,11 +12,12 @@
 <h2>Lista zwierzaków:</h2>
 <c:forEach items="${animals}" var="animal">
     ${animal.animalType} ${animal.name} <br/>
+    Zdjęcie: <img src="${animal.pic}" height="300" width="300"> <br/>
     Wiek: ${animal.estimatedAge} <br/>
     Płeć: ${animal.animalSex} <br/>
     Opis: ${animal.description} <br/>
     Rasa: ${animal.breed} <br/>
-    Misto: ${animal.shelter.city}<br/>
+    Miasto: ${animal.shelter.city}<br/>
     Do adopcji: ${animal.isAvalaibleToAdoption} <br/>
     <a href="/animal/edit/${animal.id}">Edycja zwierzaka</a>
     <a href="/animal/delete/${animal.id}">Usun zwierzaka</a>
