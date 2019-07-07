@@ -51,7 +51,7 @@ public class ShelterController {
     //Szuca - tutaj jest szukanie schroniska po mieście i w wyszukiwarce nie trzeba wpisywac całej nazwy,
     // wystarczy kawałek, bo jest Containing w wyszukiwaniu
     @GetMapping("/find-by-city")
-    public String findByLastNameForm(Model model) {
+    public String findByCityForm(Model model) {
         model.addAttribute("filterForm", new FilterForm());
         return "shelter/find";
     }

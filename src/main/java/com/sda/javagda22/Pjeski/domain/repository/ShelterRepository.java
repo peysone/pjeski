@@ -13,4 +13,6 @@ public interface ShelterRepository extends JpaRepository<Shelter, Long> {
 
     @Query("SELECT DISTINCT s.city FROM Shelter s")
     List<String> findAllCities();
+
+
 }
