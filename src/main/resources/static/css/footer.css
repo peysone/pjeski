@@ -1,0 +1,4 @@
+#footer > p {
+    display: flex;
+    align-items: flex-end;
+}

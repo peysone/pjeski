@@ -1,8 +1,18 @@
 body{
     font-family: 'Lato', sans-serif;
-    background-color: lightslategray;
+    /*background-color: lightslategray;*/
+    background-image: url("../images/tlo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 html, body{
     height: 100%;
+
+}
+#home{
+    padding: 5%;
+}
+#footer{
+    align-items: flex-end;
 }

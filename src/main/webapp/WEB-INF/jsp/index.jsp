@@ -7,7 +7,9 @@
 <body>
 <%@include file="fragments/header.jspf" %>
 <section id="home" class="section">
-    <h2><% out.print("Witaj w aplikacji pJeski - co chcesz zrobić?");%></h2>
+    <h2><% out.print("Witaj w aplikacji pJeski. Proszę wybrać miasto aby wyszukać zwierzęta do adopcji.");%></h2>
+
+
 
     <%!
         private int visitCount = 0;
@@ -16,6 +18,8 @@
     </h2><br>
     </form>
 </section>
+<div id="footer">
 <%@include file="fragments/footer.jspf" %>
+</div>
 </body>
 </html>

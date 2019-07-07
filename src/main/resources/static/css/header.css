@@ -5,24 +5,27 @@
     color: black;
     display: flex;
     justify-content: space-between;
-    height: 76px;
+    height: 60px;
 }
 
 .navigation {
-    display: flex;
+
+    justify-content: flex-end;
 }
 
 .menu {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: end;
     list-style: none;
+
 }
 
 .menu > li {
-    padding: 0 10px 0 10px;
-    background-color: darkgray;
+    padding: 10px 10px 10px 10px;
+
 }
+
 
 .menu a {
     color: black;
