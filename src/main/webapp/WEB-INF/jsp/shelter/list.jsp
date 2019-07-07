@@ -29,9 +29,12 @@
     <a href="/animal/create/${shelter.id}">Dodaj zwierzę</a>
     <br/><br/>
 
-    <c:forEach items="${shelter.animals}" var="animal">
-        Imię: ${animal.name}<br />
-    </c:forEach>
+    <%--<c:forEach items="${shelter.animals}" var="animal">--%>
+        <%--Schronisko: ${shelter.name}<br />--%>
+        <%--Imię: ${animal.name}<br />--%>
+        <%--Rodzaj: ${animal.animalType}<br />--%>
+        <%--<a href="/animal/edit/${animal.id}">Edytuj zwierzę</a><br />--%>
+    <%--</c:forEach>--%>
 
 </c:forEach>
 <%@include file="../fragments/footer.jspf"%>

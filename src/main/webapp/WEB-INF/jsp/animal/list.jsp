@@ -17,11 +17,13 @@
     Płeć: ${animal.animalSex} <br/>
     Opis: ${animal.description} <br/>
     Rasa: ${animal.breed} <br/>
+    Schronisko: ${animal.shelter.name}<br />
     Miasto: ${animal.shelter.city}<br/>
-    Do adopcji: ${animal.isAvalaibleToAdoption} <br/>
+    Do adopcji: ${animal.isAvailableToAdoption} <br/>
+    Na spacer: ${animal.isAvailableForAWalk}<br />
     <a href="/animal/edit/${animal.id}">Edycja zwierzaka</a>
     <a href="/animal/delete/${animal.id}">Usun zwierzaka</a>
-    <br> <br>
+    <br><br>
 </c:forEach>
 <%@include file="../fragments/footer.jspf" %>
 </body>
