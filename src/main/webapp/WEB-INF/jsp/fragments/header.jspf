@@ -1,42 +1,64 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Dokdo|Lato" rel="stylesheet">
+    <link rel="stylesheet" href="/resources/css/header.css"/>
 </head>
 <body>
+<%--<header id="header">--%>
 
-<table width="100%" border="0" cellpadding="8" cellspacing="4" class="tableMenuBg" bgcolor="#e6f2ff">
-    <tr>
-        <td align="left" width="900">
+<div class="logo">
+    <img src="../../../../resources/static/images/logo.jpg" alt="Logo"/>
+</div>
+<nav class="navigation">
+    <ul class="menu">
+        <li>
             <a href="/"><s:message code="menu.mainPage"/></a>&nbsp;&nbsp;
             <sec:authorize access="hasRole('ROLE_ADMIN')">
                 <a href="/admin"><s:message code="menu.adminPage"/></a>
             </sec:authorize>
-        </td>
-        <td align="right">
+        </li>
+
+        <li>
+            <a href="/">Start</a>
+        </li>
+        <li>
+            <a href="/shelter/create">Dodaj schronisko</a>
+        </li>
+        <li>
+            <a href="/shelter/find-by-city">Szukaj schronisko</a>
+        </li>
+        <li>
+            <a href="/animal/find-by-city">Szukaj zwierzaka</a>
+        </li>
+        <li>
+            <a href="/shelter/list">Lista schronisk</a>
+        </li>
+        <li>
+            <a href="/animal/list">Lista zwierzaków</a>
+        </li>
+        <li>
             <sec:authorize access="hasRole('ANONYMOUS')">
                 <a href="/login-user"><s:message code="menu.login"/></a>&nbsp;&nbsp;
                 <a href="/register"><s:message code="menu.register"/></a>&nbsp;&nbsp;
             </sec:authorize>
+        </li>
+        <li>
             <sec:authorize access="isAuthenticated()">
                 <a href="/profil"><s:message code="menu.profil"/></a>
                 <a href="/logout"><s:message code="menu.logout"/></a>
             </sec:authorize>
-        </td>
-    </tr>
-</table>
-
-<h2>Pjeski application</h2>
-<a href="/">Start</a>
-
-<a href="/shelter/create">Dodaj schronisko</a>
-<a href="/shelter/find-by-city">Szukaj schronisko</a>
-<a href="/animal/find-by-city">Szukaj zwierzaka</a>
-<a href="/shelter/list">Lista schronisk</a>
-<a href="/animal/list">Lista zwierzaków</a>
+        </li>
+    </ul>
+</nav>
+<%--</header>--%>
 </body>
 </html>

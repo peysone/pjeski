@@ -18,7 +18,6 @@ import java.util.Locale;
 
 @Controller
 @RequiredArgsConstructor
-
 public class RegisterController {
 
     @Autowired
@@ -31,7 +30,7 @@ public class RegisterController {
     public String registerForm(Model model) {
         User user = new User();
         model.addAttribute("user", user);
-        return "register";
+        return "register/register";
     }
 
     @PostMapping("/adduser")
