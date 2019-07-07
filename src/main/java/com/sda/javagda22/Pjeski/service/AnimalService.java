@@ -1,6 +1,6 @@
 package com.sda.javagda22.Pjeski.service;
 
-import com.sda.javagda22.Pjeski.domain.model.Animal;
+import com.sda.javagda22.Pjeski.domain.model.animal.Animal;
 import com.sda.javagda22.Pjeski.domain.model.Shelter;
 import com.sda.javagda22.Pjeski.domain.repository.AnimalRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +27,8 @@ public class AnimalService {
     public Optional<Animal> getAnimalById(Long id) {
         return animalRepository.findById(id);
     }
+
+    public List<Animal> getAnimalByShelterCity(){return animalRepository.findAll();}
 
     public void editAnimal(Animal animal) {
         animalRepository.save(animal);

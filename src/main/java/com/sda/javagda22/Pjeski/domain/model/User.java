@@ -2,10 +2,9 @@ package com.sda.javagda22.Pjeski.domain.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Data
 @Entity
@@ -21,7 +20,24 @@ public class User {
     private String city;
     private String address;
     private String postalCode;
-    private String emailAdress;
+    @NotNull
+    private String email;
+//    ---------------------------
+    @NotNull
+    private String password;
+    @Transient
+    private int roleNr;
+    @NotNull
+    private int active;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_role",
+    joinColumns = @JoinColumn(name = "role_id"),
+    inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private Set<Role> roles;
+//    @Transient
+//    private String operation;
+
 //    todo osiągnięcia za największe datki itp
 //    todo logowanie
 //    - tylko login widoczny dla innych w HallOfFame z powodu RODO itp
@@ -32,6 +48,11 @@ public class User {
     przy jego nicku coś jak na allegro "zaufany sprzedawca"
      */
 
+    public int getRoleNr() {
+        return roleNr;
+    }
 
-
+    public void setRoleNr(int roleNr) {
+        this.roleNr = roleNr;
+    }
 }

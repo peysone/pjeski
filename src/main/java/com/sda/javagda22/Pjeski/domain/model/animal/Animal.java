@@ -1,6 +1,7 @@
-package com.sda.javagda22.Pjeski.domain.model;
+package com.sda.javagda22.Pjeski.domain.model.animal;
 
 
+import com.sda.javagda22.Pjeski.domain.model.Shelter;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -28,7 +29,8 @@ public class Animal {
     private AnimalType animalType;
 
     // Szuca - dodana relacja do sheltera
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "shelter_id")
     private Shelter shelter;
 
 //foty dodajemy w JSP

@@ -1,6 +1,7 @@
 package com.sda.javagda22.Pjeski.domain.model;
 
 
+import com.sda.javagda22.Pjeski.domain.model.animal.Animal;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -22,7 +23,7 @@ public class Shelter {
     private String accountNumber;
 
     // Szuca - dodana relacja do animala
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "shelter", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "shelter")
     private List<Animal> animals;
 
 

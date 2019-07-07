@@ -1,6 +1,6 @@
 package com.sda.javagda22.Pjeski.controller;
 
-import com.sda.javagda22.Pjeski.domain.model.Animal;
+import com.sda.javagda22.Pjeski.domain.model.animal.Animal;
 import com.sda.javagda22.Pjeski.service.AnimalService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
