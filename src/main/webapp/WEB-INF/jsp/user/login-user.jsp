@@ -13,7 +13,7 @@
     <title><s:message code="logowanie.pageName" /></title>
 </head>
 <body>
-<%@include file="fragments/menu.app"%>
+<%@include file="../fragments/menu.app"%>
 <h2>
     <s:message code="logowanie.pageName" />
 </h2>

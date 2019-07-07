@@ -49,8 +49,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/adduser").permitAll()
                 .antMatchers("/h2-console").permitAll()
                 .antMatchers("/animal/**").permitAll()
-                .antMatchers("/src/main/webapp/WEB-INF/resources/css/**").permitAll()
-                .antMatchers("/src/main/webapp/WEB-INF/resources/images/**").permitAll()
+                .antMatchers("/src/main/webapp/WEB-INF/static/css/**").permitAll()
+                .antMatchers("/src/main/webapp/WEB-INF/static/images/**").permitAll()
                 .antMatchers("/activatelink/**").permitAll()
 		        .antMatchers("/admin").hasAuthority("ROLE_ADMIN")
                 .anyRequest().authenticated()
@@ -67,7 +67,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public void configure(WebSecurity webSec) throws Exception {
         webSec.ignoring()
-                .antMatchers("/resources/**", "/statics/**", "/src/main/webapp/WEB-INF/resources/css/**", "/js/**", "/src/main/webapp/WEB-INF/resources/images/**", "/incl/**");
+                .antMatchers("/resources/**", "/static/**", "/js/**", "/src/main/webapp/WEB-INF/static/images/**", "/src/main/webapp/WEB-INF/jsp/fragments/**");
     }
 
 }

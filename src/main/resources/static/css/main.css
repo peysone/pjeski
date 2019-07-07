@@ -1,10 +1,8 @@
-/** {*/
-    /*margin: 10px;*/
-    /*padding: 5px;*/
-/*}*/
-
-html, body {
-    height: 100%;
+body{
+    font-family: 'Lato', sans-serif;
+    background-color: lightslategray;
 }
 
-body {font-family: 'Lato', sans-serif;}
+html, body{
+    height: 100%;
+}
