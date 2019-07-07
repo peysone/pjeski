@@ -8,10 +8,5 @@ import lombok.Data;
 public class FilterForm {
 	//do szukania po mieście
 	private String city;
-
-	private Integer estimatedAge;
-
-	private Integer weight;
-
 	private AnimalType animalType;
 }

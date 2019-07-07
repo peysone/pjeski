@@ -10,14 +10,21 @@
 <body>
 <%@include file="../fragments/header.jspf" %>
 <h2>Lista zwierzaków:</h2>
+
+<%--<c:if test="${empty shelters}">--%>
+    <%--<h3>Nie znaleziono zwierząt w danym mieście!</h3>--%>
+<%--</c:if>--%>
+
 <c:forEach items="${animals}" var="animal">
     ${animal.animalType} ${animal.name} <br/>
     Wiek: ${animal.estimatedAge} <br/>
     Płeć: ${animal.animalSex} <br/>
     Opis: ${animal.description} <br/>
     Rasa: ${animal.breed} <br/>
-    Misto: ${animal.shelter.city}<br/>
-    Do adopcji: ${animal.isAvalaibleToAdoption} <br/>
+    Schronisko: ${animal.shelter.name}<br />
+    Miasto: ${animal.shelter.city}<br/>
+    Do adopcji: ${animal.isAvailableToAdoption} <br/>
+    Na spacer: ${animal.isAvailableForAWalk}<br />
     <a href="/animal/edit/${animal.id}">Edycja zwierzaka</a>
     <a href="/animal/delete/${animal.id}">Usun zwierzaka</a>
     <br><br>
