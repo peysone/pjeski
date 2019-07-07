@@ -29,6 +29,8 @@ public class AnimalService {
         return animalRepository.findById(id);
     }
 
+    public List<Animal> getAnimalByShelterCity(){return animalRepository.findAll();}
+
     public void editAnimal(Animal animal) {
         animalRepository.save(animal);
     }
@@ -56,10 +58,8 @@ public class AnimalService {
         return animalRepository.findAnimalByWeight(weight);
     }
 
-    public List<Animal> getAnimalByType(AnimalType animalType) {
+    public List<Animal> getAnimalByAnimalType(AnimalType animalType) {
         return animalRepository.findAnimalByAnimalType(animalType);
     }
-
-
 
 }

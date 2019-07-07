@@ -8,6 +8,7 @@
 </head>
 <body>
 <%@include file="../fragments/header.jspf"%>
+<%--<%@include file="../fragments/menu.app" %>--%>
 <h2>Formularz dodawania schroniska:</h2>
 <%--@elvariable id="shelter" type="com.sda.javagda22.Pjeski.domain.model.Shelter"--%>
 

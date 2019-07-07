@@ -1,6 +1,5 @@
 package com.sda.javagda22.Pjeski.domain.model;
 
-
 import com.sda.javagda22.Pjeski.domain.model.animal.Animal;
 import lombok.Data;
 
@@ -12,7 +11,7 @@ import java.util.List;
 public class Shelter {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
