@@ -1,8 +1,6 @@
-package com.sda.javagda22.Pjeski.domain.model;
-
+package com.sda.javagda22.Pjeski.domain.model.animal;
 
 import com.sda.javagda22.Pjeski.domain.model.Shelter;
-import com.sda.javagda22.Pjeski.domain.model.animal.AnimalType;
 import lombok.Data;
 
 import javax.persistence.*;
