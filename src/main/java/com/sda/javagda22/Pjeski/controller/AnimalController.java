@@ -24,6 +24,7 @@ public class AnimalController {
     private final AnimalService animalService;
     private final ShelterService shelterService;
 
+
     // Szuca - od teraz animala dodajemy od razu do schroniska, ponieważ bez sensu jest dodawać go bez przypisania do schroniska
     //więc posłużyłam sie kodem z kliniki i stworzyłam coś takiego i tu tylko cerate jest zmienione
     @GetMapping("/create/{shelterId}")

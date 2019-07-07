@@ -2,12 +2,20 @@ package com.sda.javagda22.Pjeski.validators;
 
 import com.sda.javagda22.Pjeski.constants.PjeskiConstants;
 import com.sda.javagda22.Pjeski.domain.model.User;
+import com.sda.javagda22.Pjeski.domain.repository.UserRepository;
 import com.sda.javagda22.Pjeski.utilities.PjeskiUtils;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@Component
+@RequiredArgsConstructor
 public class UserRegisterValidator implements Validator {
+
+    private final UserRepository userRepository;
     @Override
     public boolean supports(Class<?> cls) {
         return User.class.equals(cls);
@@ -38,10 +46,8 @@ public class UserRegisterValidator implements Validator {
 
     }
 
-    public void validateEmailExist(User user, Errors errors) {
-        if (user != null) {
-            errors.rejectValue("email", "error.userEmailExist");
-        }
+    public void validateEmailExist(String email, Errors errors) {
+    userRepository.findByEmail(email);
     }
 
 }
