@@ -27,7 +27,4 @@ public class Animal {
 
     @ManyToOne
     private Shelter shelter;
-
-//foty dodajemy w JSP
-
 }
