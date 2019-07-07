@@ -11,7 +11,7 @@
 </head>
 <body>
 <%@include file="../fragments/header.jspf" %>
-<h2>Find animals by city</h2>
+<h2>Szukaj zwierząt według miasta:</h2>
 <form:form action="/animal/find-by-city" method="POST" modelAttribute="filterForm">
     Miasto: <select name="city">
     <c:forEach items="${allCities}" var="city">
