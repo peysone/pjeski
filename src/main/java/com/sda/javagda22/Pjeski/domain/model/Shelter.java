@@ -21,9 +21,6 @@ public class Shelter {
     private String telephone;
     private String accountNumber;
 
-    // Szuca - dodana relacja do animala
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "shelter")
     private List<Animal> animals;
-
-
 }

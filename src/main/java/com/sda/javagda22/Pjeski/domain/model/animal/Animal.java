@@ -27,7 +27,4 @@ public class Animal {
     private Integer weight;
     @ManyToOne
     private Shelter shelter;
-
-//foty dodajemy w JSP
-
 }
