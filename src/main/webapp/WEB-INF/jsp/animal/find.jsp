@@ -13,9 +13,11 @@
 <%@include file="../fragments/header.jspf" %>
 <h2>Find animals by city</h2>
 <form:form action="/animal/find-by-city" method="POST" modelAttribute="filterForm">
-<<<<<<< Updated upstream
-=======
-    Miasto: <form:input path="city"/><br/>
+    Miasto: <select name="city">
+    <c:forEach items="${allCities}" var="city">
+        <option>${city}</option>
+    </c:forEach>
+</select><br/>
     <input type="submit" value="Szukaj!"/>
 </form:form>
 <br />
@@ -29,16 +31,10 @@
     <option>INNE</option>
     <input type="submit" value="Szukaj!"/>
 </form:select>
->>>>>>> Stashed changes
 
-
-    Miasto: <select name="city">
-    <c:forEach items="${allCities}" var="city">
-        <option>${city}</option>
-    </c:forEach>
-</select><br/>
-    <input type="submit" value="Find all!"/>
 </form:form>
+
+
 
 
 </body>
