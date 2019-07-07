@@ -9,10 +9,11 @@
 </head>
 <body>
 <%@include file="../fragments/header.jspf" %>
-<h2>Szukaj zwierząt według miast</h2>
+<h2>Szukaj zwierząt według miast:</h2>
 <form:form action="/animal/find-by-city" method="POST" modelAttribute="filterForm">
     Miasto: <form:input path="city"/><br/>
-    <input type="submit" value="Find all!"/>
+    <input type="submit" value="Szukaj!"/>
+
 </form:form>
 </body>
 </html>

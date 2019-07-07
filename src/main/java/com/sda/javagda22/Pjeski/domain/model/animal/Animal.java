@@ -27,6 +27,10 @@ public class Animal {
     private AnimalType animalType;
     private AnimalSex animalSex;
 
+    private Integer weight; //dodane przeze mnie
+
+
+
     @ManyToOne
     private Shelter shelter;
 

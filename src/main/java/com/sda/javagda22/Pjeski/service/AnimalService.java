@@ -2,6 +2,7 @@ package com.sda.javagda22.Pjeski.service;
 
 import com.sda.javagda22.Pjeski.domain.model.animal.Animal;
 import com.sda.javagda22.Pjeski.domain.model.Shelter;
+import com.sda.javagda22.Pjeski.domain.model.animal.AnimalType;
 import com.sda.javagda22.Pjeski.domain.repository.AnimalRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,19 @@ public class AnimalService {
     public List<Animal> getAnimalsByShelterCity(String city) {
         return animalRepository.findAnimalByShelter_City(city);
     }
+
+    public List<Animal> getAnimalByEstimatedAge(Integer estimatedAge) {
+        return animalRepository.findAnimalByEstimatedAge(estimatedAge);
+    }
+
+    public List<Animal> getAnimalByWeight(Integer weight) {
+        return animalRepository.findAnimalByWeight(weight);
+    }
+
+    public List<Animal> getAnimalByType(AnimalType animalType) {
+        return animalRepository.findAnimalByAnimalType(animalType);
+    }
+
 
 
 }
