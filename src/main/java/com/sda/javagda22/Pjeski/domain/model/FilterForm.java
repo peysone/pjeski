@@ -8,7 +8,7 @@ public class FilterForm {
 	//do szukania po mieście
 	private String city;
 	//do szukania po wieku
-	private Integer age;
+	private Integer estimatedAge;
 
 	private Integer weight;
 

@@ -105,7 +105,7 @@ public class AnimalController {
     @PostMapping("/filter-by-age")
     public String filterAnimalByAge(@ModelAttribute("filterForm") FilterForm filterForm,
                                     Model model) {
-        List<Animal> animals = animalService.getAnimalByAge(filterForm.getAge());
+        List<Animal> animals = animalService.getAnimalByEstimatedAge(filterForm.getEstimatedAge());
         model.addAttribute("animals", animals);
         return "animal/list";
     }
@@ -133,7 +133,7 @@ public class AnimalController {
     @PostMapping("/filter-by-type")
     public String filterAnimalByType(@ModelAttribute("filterForm") FilterForm filterForm,
                                      Model model) {
-        List<Animal> animals = animalService.getAnimalByType(filterForm.getAnimalType());
+        List<Animal> animals = animalService.getAnimalByAnimalType(filterForm.getAnimalType());
         model.addAttribute("animals", animals);
         return "animal/list";
     }

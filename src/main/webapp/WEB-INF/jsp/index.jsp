@@ -1,14 +1,7 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Lato', sans-serif;
-            font-size: 20px;
-        }
-    </style>
-
+    <title>Strona główna</title>
 </head>
 <body>
 <%@include file="fragments/header.jspf" %>
