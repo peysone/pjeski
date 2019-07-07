@@ -37,8 +37,8 @@
 
     Opis: <form:input path="description"/> <br/>
     Zdjęcie: <form:input path="pic"/><br/>
-    Czy do adopcji: <form:checkbox path="isAvalaibleToAdoption"/> <br/>
-    Czy dostepny na spacer: <form:checkbox path="isAvailabraForAWalk"/> <br/>
+    Czy do adopcji: <form:checkbox path="isAvailableToAdoption"/> <br/>
+    Czy dostepny na spacer: <form:checkbox path="isAvailableForAWalk"/> <br/>
 
 
     <%--dodawanie obrazka czysty html--%>

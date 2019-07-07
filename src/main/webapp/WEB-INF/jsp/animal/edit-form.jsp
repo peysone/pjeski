@@ -31,8 +31,8 @@
     Rasa: <form:input path="breed"/> <br/>
     Od kiedy w schronisku: <form:input path="dateSinceInShelter"/> <br/>
     Czy rasowy: <form:checkbox path="isPurebred"/> <br/>
-    Czy do adopcji: <form:checkbox path="isAvalaibleToAdoption"/> <br/>
-    Czy dostepny na spacer: <form:checkbox path="isAvailabraForAWalk"/> <br/>
+    Czy do adopcji: <form:checkbox path="isAvailableToAdoption"/> <br/>
+    Czy dostepny na spacer: <form:checkbox path="isAvailableForAWalk"/> <br/>
     Zdjęcię: <form:input path="pic"/> <br/>
     <form:hidden path="id" />
     <form:hidden path="shelter.id" />
