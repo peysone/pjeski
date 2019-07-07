@@ -82,6 +82,8 @@ public class AnimalController {
 
     @GetMapping("/find-by-city")
     public String findByLastNameForm(Model model) {
+        List<String> allCities = shelterService.getAllCities();
+        model.addAttribute("allCities", allCities);
         model.addAttribute("filterForm", new FilterForm());
         return "animal/find";
     }

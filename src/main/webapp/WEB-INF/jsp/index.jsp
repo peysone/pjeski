@@ -1,25 +1,21 @@
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Strona główna</title>
+    <link rel="stylesheet" href="/resources/css/main.css"/>
 </head>
 <body>
 <%@include file="fragments/header.jspf" %>
-<h2><% out.print("Witaj w aplikacji pJeski - co chcesz zrobić?");%></h2>
-<a href="/animal/find-by-city">Szukaj zwierzaka</a><br>
+<section id="home" class="section">
+    <h2><% out.print("Witaj w aplikacji pJeski - co chcesz zrobić?");%></h2>
 
-<a href="/shelter/find-by-city">Szukaj schroniska</a>
-<%--<a href="name.jsp">NAME exception bo samo name http://localhost:8080/name.jsp</a><br>--%>
-<%--<a href="name.jsp?name=">NAME exception link bez parametru name http://localhost:8080/name.jsp?name=</a><br>--%>
-<%--<a href="name.jsp?name=janusz">NAME z prawidłowym linkiem (ale z mala pierwszą literą) http://localhost:8080/name.jsp?=janusz</a><br>--%>
-<%--<a href="counter.jsp">licznik odsłon strony.jsp</a><br>--%>
-<%--<a href="predefined2.jsp">ćwiczenie pedefined.jsp bez print.out</a>--%>
-
-<%!
-    private int visitCount = 0;
-%>
-<h2>Ilosc odwiedzin strony: <%= ++visitCount%></h2><br>
-</form>
+    <%!
+        private int visitCount = 0;
+    %>
+    <h2>Ilosc odwiedzin strony: <%= ++visitCount%>
+    </h2><br>
+    </form>
+</section>
 <%@include file="fragments/footer.jspf" %>
 </body>
 </html>

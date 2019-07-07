@@ -1,0 +1,40 @@
+body {
+    background-color: #ff4000;
+}
+
+#header {
+    position: fixed;
+    width: 100%;
+    background-color: rgba(255, 255, 255, .2);
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    height: 76px;
+}
+
+.navigation {
+    display: flex;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+}
+
+.menu > li {
+    padding: 0 10px 0 10px;
+    background-color: darkgray;
+}
+
+.menu a {
+    color: black;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    transition: .5s;
+    color: darkmagenta;
+    text-decoration: underline;
+}
