@@ -17,19 +17,12 @@
     </select>
         <input type="submit" value="Szukaj!"/>
     </form:form>
-
-
-    <br>
-
 </section>
-<%--    <div id="footer">--%>
-<%--        <%!--%>
-<%--            private int visitCount = 0;--%>
-<%--        %>--%>
-<%--        <h2>Ilosc odwiedzin strony: <%= ++visitCount%>--%>
-<%--        </h2>--%>
-<%--        <%@include file="fragments/footer.jspf" %>--%>
-<%--    </div>--%>
-<%@include file="fragments/footer.jspf" %>
+<div id="footer">
+    <%!private int visitCount = 0;%>
+    <h2>Ilosc odwiedzin strony: <%= ++visitCount%>
+    </h2>
+    <%@include file="fragments/footer.jspf" %>
+</div>
 </body>
 </html>
