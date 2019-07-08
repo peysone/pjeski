@@ -35,6 +35,7 @@
 
         <li><a href="/animal/list">Lista zwierzaków</a></li>
 
+        <li><a href="/about">Twórcy</a></li>
 
         <sec:authorize access="hasRole('ANONYMOUS')">
             <li><a href="/login-user"><s:message code="menu.login"/></a>&nbsp;&nbsp;</li>

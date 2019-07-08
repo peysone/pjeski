@@ -39,4 +39,9 @@ public class IndexController {
         model.addAttribute("animals", animals);
         return "animal/list";
     }
+
+    @GetMapping("/about")
+    public String goToAbout() {
+        return "about";
+    }
 }
