@@ -24,7 +24,6 @@ public class AnimalController {
     private final AnimalService animalService;
     private final ShelterService shelterService;
 
-
     // Szuca - od teraz animala dodajemy od razu do schroniska, ponieważ bez sensu jest dodawać go bez przypisania do schroniska
     //więc posłużyłam sie kodem z kliniki i stworzyłam coś takiego i tu tylko cerate jest zmienione
     @GetMapping("/create/{shelterId}")
@@ -51,7 +50,6 @@ public class AnimalController {
     @GetMapping("/edit/{id}")
     public String editAnimalForm(@PathVariable("id") Long id, Model model) {
         Optional<Animal> maybeAnimal = animalService.getAnimalById(id);
-
         if (!maybeAnimal.isPresent()) {
             return "redirect:/animal/create";
         } else {
@@ -94,7 +92,6 @@ public class AnimalController {
         model.addAttribute("animals", animals);
         return "animal/list";
     }
-
 
     @GetMapping("/filter-by-type")
     public String filterAnimalsByType(Model model) {

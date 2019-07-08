@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Find shelters by city containing</title>
+    <link rel="stylesheet" href="/resources/css/main.css"/>
 </head>
 <body>
 <%@include file="../fragments/header.jspf" %>
@@ -16,10 +17,8 @@
         <c:out value="${shelter.city}"/>
     </c:forEach>
     </select>
-
     <input type="submit" value="Szukaj"/>
 </form:form>
-
 <%@include file="../fragments/footer.jspf" %>
 </body>
 </html>

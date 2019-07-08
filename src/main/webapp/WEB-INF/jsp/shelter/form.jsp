@@ -4,6 +4,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/resources/css/main.css"/>
     <title>Dodawanie schroniska</title>
 </head>
 <body>

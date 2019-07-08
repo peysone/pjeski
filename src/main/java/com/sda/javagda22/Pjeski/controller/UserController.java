@@ -1,5 +1,6 @@
 package com.sda.javagda22.Pjeski.controller;
 
+import com.sda.javagda22.Pjeski.domain.model.FilterForm;
 import com.sda.javagda22.Pjeski.domain.model.User;
 import com.sda.javagda22.Pjeski.service.UserService;
 import com.sda.javagda22.Pjeski.service.UserServiceInterface;

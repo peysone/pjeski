@@ -1,9 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html lang="en">
-
-<%@include file="./fragments/header.jspf"%>
-
+<head>
+    <link rel="stylesheet" href="/resources/css/main.css"/>
+</head>
+<body>
+<%@include file="./fragments/header.jspf" %>
 <center>
     <h1>
         <div><span style="color:#ff0000;">C</span><span style="color:#ff4000;">o</span><span
@@ -18,6 +20,6 @@
     <img src="<c:url value="../../../resources/static/images/crying.jpg"/>"/>
 
 </center>
-<%@include file="./fragments/footer.jspf"%>
+<%@include file="./fragments/footer.jspf" %>
 </body>
 </html>

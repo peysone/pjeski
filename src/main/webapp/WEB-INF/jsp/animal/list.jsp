@@ -5,12 +5,14 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/resources/css/main.css"/>
     <title>Animal list</title>
 </head>
 <body>
 <%@include file="../fragments/header.jspf" %>
 <h2>Lista zwierzaków:</h2>
 
+<%--Teoretycznie można to wyrzucić bo do wyboru są tylko miasta z listy schronisk--%>
 <%--<c:if test="${empty shelters}">--%>
     <%--<h3>Nie znaleziono zwierząt w danym mieście!</h3>--%>
 <%--</c:if>--%>

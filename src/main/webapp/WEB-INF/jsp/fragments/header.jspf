@@ -13,16 +13,11 @@
     <link rel="stylesheet" href="/resources/css/header.css"/>
 </head>
 <body>
-<%--<header id="header">--%>
 <header id="header">
     <div>
         <img src="/resources/images/pjeski.png" alt="Logo" width="100" height="60"/>
-
     </div>
 <nav class="navigation">
-
-
-
 
     <ul class="menu">
         <li> <a href="/"><s:message code="menu.mainPage"/></a></li>
@@ -41,7 +36,6 @@
         <li><a href="/animal/list">Lista zwierzaków</a></li>
 
 
-
         <sec:authorize access="hasRole('ANONYMOUS')">
             <li><a href="/login-user"><s:message code="menu.login"/></a>&nbsp;&nbsp;</li>
             <li><a href="/register"><s:message code="menu.register"/></a>&nbsp;&nbsp;</li>
@@ -52,12 +46,7 @@
             <li><a href="/logout"><s:message code="menu.logout"/></a></li>
         </sec:authorize>
     </ul>
-
-
 </nav>
-
-
 </header>
-<%--</header>--%>
 </body>
 </html>

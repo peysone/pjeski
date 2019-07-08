@@ -5,6 +5,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/resources/css/main.css"/>
     <title>Shelter list</title>
 </head>
 <body>
