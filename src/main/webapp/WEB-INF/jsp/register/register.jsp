@@ -32,7 +32,6 @@
         <tr>
             <td colspan="2" align="center"><font color="red"><sf:errors path="lastName"/></font></td>
         </tr>
-
         <tr>
             <td width="130" align="right"><s:message code="register.email"/></td>
             <td width="270" align="left"><sf:input path="email" size="28"/></td>
@@ -40,7 +39,6 @@
         <tr>
             <td colspan="2" align="center"><font color="red"><sf:errors path="email"/></font></td>
         </tr>
-
         <tr>
             <td width="130" align="right"><s:message code="register.password"/></td>
             <td width="270" align="left"><sf:password path="password" size="28"/></td>
@@ -48,7 +46,6 @@
         <tr>
             <td colspan="2" align="center"><font color="red"><sf:errors path="password"/></font></td>
         </tr>
-
         <tr>
             <td colspan="2" align="center" bgcolor="#fff">
                 <input type="submit" value="<s:message code="button.register"/>" class="formbutton"/>
@@ -56,9 +53,7 @@
                        onclick="window.location.href='${pageContext.request.contextPath}/'"/>
             </td>
         </tr>
-
     </table>
-
 </sf:form>
 <%@include file="../fragments/footer.jspf" %>
 </body>
