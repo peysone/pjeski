@@ -51,7 +51,6 @@ public class AnimalController {
     @GetMapping("/edit/{id}")
     public String editAnimalForm(@PathVariable("id") Long id, Model model) {
         Optional<Animal> maybeAnimal = animalService.getAnimalById(id);
-
         if (!maybeAnimal.isPresent()) {
             return "redirect:/animal/create";
         } else {
@@ -94,7 +93,6 @@ public class AnimalController {
         model.addAttribute("animals", animals);
         return "animal/list";
     }
-
 
     @GetMapping("/filter-by-type")
     public String filterAnimalsByType(Model model) {
