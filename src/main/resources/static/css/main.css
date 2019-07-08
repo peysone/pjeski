@@ -23,3 +23,14 @@ html, body {
     min-height: 100%;
     position: relative;
 }
+
+.cadre{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    list-style: none;
+}
+
+.cadre > li {
+    padding: 10px 10px 10px 10px;
+}
