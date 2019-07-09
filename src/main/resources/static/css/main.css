@@ -1,8 +1,36 @@
-body{
+body {
     font-family: 'Lato', sans-serif;
-    background-color: lightslategray;
+    /*background-color: lightslategray;*/
+    background-image: url("../images/background.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
-html, body{
+html, body {
     height: 100%;
+}
+
+#home {
+    padding: 5%;
+}
+
+#container {
+    min-height: 100%;
+    position: relative;
+}
+
+.cadre{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    list-style: none;
+}
+
+.cadre > li {
+    padding: 10px 10px 10px 10px;
 }
