@@ -70,7 +70,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public void configure(WebSecurity webSec) throws Exception {
         webSec.ignoring()
-                .antMatchers("/resources/**", "/static/**", "/js/**", "/src/main/webapp/WEB-INF/static/images/**", "/src/main/webapp/WEB-INF/jsp/fragments/**");
+                .antMatchers("/resources/**", "/static/**", "/js/**",
+                        "/src/main/webapp/WEB-INF/static/images/**",
+                        "/src/main/webapp/WEB-INF/jsp/fragments/**");
     }
 
 }

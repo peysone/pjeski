@@ -11,30 +11,30 @@
         <li>
             <div>
                 <a style="font-size: 44px">dodiedogg</a><br/>
-                <img src="/resources/images/dodiedogg.jpg" alt="dodiedogg" width="400" height="400"/><br/>
-                <a style="font-size: 22px">Analityk i markieter</a>
+                <img src="/resources/images/dodiedogg.jpg" alt="dodiedogg" width="100%"/><br/>
+                <a style=" font-size: 22px">Analityk i markieter</a>
             </div>
         </li>
         <li>
             <div>
                 <a style="font-size: 44px">KSzuca</a><br/>
-                <img src="/resources/images/KSzuca.jpg" alt="KSzuca" width="400" height="400"/><br/>
-                <a style="font-size: 22px">Coś robiła</a>
+                <img src="/resources/images/KSzuca.jpg" alt="KSzuca" width="100%"/><br/>
+                <a style=" font-size: 22px">Coś robiła</a>
             </div>
         </li>
         <li>
             <div>
                 <a style="font-size: 44px">peysone</a><br/>
-                <img src="/resources/images/peysone.jpg" alt="peysone" width="400" height="400"/><br/>
-                <a style="font-size: 22px">Specjalista od gita</a>
+                <img src="/resources/images/peysone.jpg" alt="peysone" width="100%"/><br/>
+                <a style=" font-size: 22px">Specjalista od gita</a>
             </div>
         </li>
         <li>
-        <div>
-            <a style="font-size: 44px">PMushy</a><br/>
-            <img src="/resources/images/PMushy.jpg" alt="PMushy" width="400" height="400"/><br/>
-            <a style="font-size: 22px">Wsparcie mentalne</a>
-        </div>
+            <div>
+                <a style="font-size: 44px">PMushy</a><br/>
+                <img src="/resources/images/PMushy.jpg" alt="PMushy" width="100%"/><br/>
+                <a style="font-size: 22px">Wsparcie mentalne</a>
+            </div>
         </li>
     </ul>
 </center>

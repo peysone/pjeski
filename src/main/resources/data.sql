@@ -53,3 +53,7 @@
 
     INSERT INTO animal(id, animal_sex, animal_type, breed, date_since_in_shelter, description, estimated_age, identification_number, is_available_forAWalk, is_available_to_adoption, is_purebred, name, shelter_id)
     VALUES ('13', '0', '0', 'kundel', '12.12.12', 'tu jest opis', '9', '123123', 'true', 'true', 'false', 'Azor', '2');
+
+
+--     INSERT INTO user(id, firstName, lastName, city, address, postalCode, email, password, roleNr, active, roles)
+--     VALUES ('1', 'Ardian', 'Nazwisko', 'Gdańsk', 'Warszawska 7', '80-180', 'email@gmail.com', 'Admin123!', '1', '1', '1')

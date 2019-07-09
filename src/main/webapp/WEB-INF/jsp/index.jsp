@@ -19,8 +19,8 @@
     </form:form>
 </section>
 <div id="footer">
-    <%!private int visitCount = 0;%>
-    <h2>Ilosc odwiedzin strony: <%= ++visitCount%>
+    <%!private static int visitCount = 0;%>
+    <h2>Ilość odwiedzin strony: <%= ++visitCount%>
     </h2>
     <%@include file="fragments/footer.jspf" %>
 </div>
