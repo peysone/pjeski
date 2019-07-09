@@ -27,9 +27,6 @@ public class UserController {
         return "user/profil";
 
     }
-
-    @GetMapping(value = "/login-user")
-    public String showLoginPage() {
-        return "user/login-user";
-    }
+//    1!Dzikirex
 }
+
