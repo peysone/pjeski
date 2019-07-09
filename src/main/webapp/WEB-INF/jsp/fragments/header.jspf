@@ -38,9 +38,9 @@
         <li><a href="/about">Twórcy</a></li>
 
         <sec:authorize access="hasRole('ANONYMOUS')">
-            <li><a href="/login-user"><s:message code="menu.login"/></a>&nbsp;&nbsp;</li>
+            <li><a href="/login"><s:message code="menu.login"/></a>&nbsp;&nbsp;</li>
             <li><a href="/register"><s:message code="menu.register"/></a>&nbsp;&nbsp;</li>
-        </sec:authorize></li>
+        </sec:authorize>
 
         <sec:authorize access="isAuthenticated()">
             <li><a href="/profil"><s:message code="menu.profil"/></a></li>

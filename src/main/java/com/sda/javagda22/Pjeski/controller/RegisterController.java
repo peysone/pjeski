@@ -66,7 +66,7 @@ public class RegisterController {
 //        model.addAttribute("message", messageSource.getMessage("user.register.success.email", null, locale));
 //        //model.addAttribute("user", new User());
 
-            returnPage = "/register/register";
+            returnPage = "/login";
         }
 
         return returnPage;
