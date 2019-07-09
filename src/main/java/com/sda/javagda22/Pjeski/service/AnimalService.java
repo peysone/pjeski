@@ -60,6 +60,15 @@ public class AnimalService {
 //        return animalRepository.findAnimalByWeight(weight);
 //    }
 
+    public List<Animal> getAnimalByEstimatedAge(Integer estimatedAge) {
+        return animalRepository.findAnimalByEstimatedAge(estimatedAge);
+    }
 
+    public List<Animal> getAnimalByWeight(Integer weight) {
+        return animalRepository.findAnimalByWeight(weight);
+    }
 
+    public List<Animal> getAnimalByAnimalType(AnimalType animalType) {
+        return animalRepository.findAnimalByAnimalType(animalType);
+    }
 }
