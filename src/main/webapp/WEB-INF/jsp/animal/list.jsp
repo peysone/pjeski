@@ -21,7 +21,6 @@
     <%--<c:if test="${empty shelters}">--%>
     <%--<h3>Nie znaleziono zwierząt w danym mieście!</h3>--%>
     <%--</c:if>--%>
-
     <c:forEach items="${animals}" var="animal">
         <a><b>${animal.animalType} ${animal.name} </b></a><br/>
         <a><b>Wiek: </b></a>${animal.estimatedAge} <br/>
@@ -30,8 +29,8 @@
         <a><b> Rasa: </b></a>${animal.breed} <br/>
         <a><b> Schronisko:</b></a> ${animal.shelter.name}<br/>
         <a><b> Miasto: </b></a>${animal.shelter.city}<br/>
-        <a><b> Do adopcji: </b></a>${animal.isAvailableToAdoption} <br/>
-        <a><b> Na spacer:</b></a> ${animal.isAvailableForAWalk}<br/>
+        <a><b> Do adopcji: </b></a>${animal.isAvailableToAdoption ? 'Tak' : 'Nie'}<br/>
+        <a><b> Na spacer:</b></a> ${animal.isAvailableForAWalk ? 'Tak' : 'Nie'}<br/>
         <a href="/animal/visit/${animal.id}">Umów wizytę</a><br/>
         <a href="/animal/edit/${animal.id}">Edycja zwierzaka</a>
         <a href="/animal/delete/${animal.id}">Usun zwierzaka</a>

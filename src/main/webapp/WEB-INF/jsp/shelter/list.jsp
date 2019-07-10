@@ -26,14 +26,14 @@
         <a><b> Numer konta bankowego:</b></a> ${shelter.accountNumber} <br/>
         <a href="/animal/create/${shelter.id}">Dodaj zwierzę</a>
         <br/><br/>
-
-        <%--<c:forEach items="${shelter.animals}" var="animal">--%>
-        <%--Schronisko: ${shelter.name}<br />--%>
-        <%--Imię: ${animal.name}<br />--%>
-        <%--Rodzaj: ${animal.animalType}<br />--%>
-        <%--<a href="/animal/edit/${animal.id}">Edytuj zwierzę</a><br />--%>
-        <%--</c:forEach>--%>
-
+        <a><b>Zwierzaki w schronisku:</b></a><br/>
+        <c:if test="${empty shelter.animals}">
+            <a style="font-size:16px"><b>Brak zwierząt w schronisku.</b></a>
+        </c:if>
+        <c:forEach items="${shelter.animals}" var="animal">
+            ${animal.animalType} ${animal.name}<br/>
+        </c:forEach>
+        <br/>
     </c:forEach>
 </section>
 <%@include file="../fragments/footer.jspf" %>

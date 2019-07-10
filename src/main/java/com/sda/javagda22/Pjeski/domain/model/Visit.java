@@ -15,9 +15,9 @@ public class Visit {
     private String description;
     private String date;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     private Animal animal;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     private User user;
 
 }
