@@ -1,42 +1,53 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Dokdo|Lato" rel="stylesheet">
+    <link rel="stylesheet" href="/resources/css/header.css"/>
 </head>
 <body>
+<header id="header">
+    <div>
+        <img src="/resources/images/pjeski.png" alt="Logo" width="150" height="80"/>
+    </div>
+<nav class="navigation">
 
-<table width="100%" border="0" cellpadding="8" cellspacing="4" class="tableMenuBg" bgcolor="#e6f2ff">
-    <tr>
-        <td align="left" width="900">
-            <a href="/"><s:message code="menu.mainPage"/></a>&nbsp;&nbsp;
-            <sec:authorize access="hasRole('ROLE_ADMIN')">
-                <a href="/admin"><s:message code="menu.adminPage"/></a>
-            </sec:authorize>
-        </td>
-        <td align="right">
-            <sec:authorize access="hasRole('ANONYMOUS')">
-                <a href="/login-user"><s:message code="menu.login"/></a>&nbsp;&nbsp;
-                <a href="/register"><s:message code="menu.register"/></a>&nbsp;&nbsp;
-            </sec:authorize>
-            <sec:authorize access="isAuthenticated()">
-                <a href="/profil"><s:message code="menu.profil"/></a>
-                <a href="/logout"><s:message code="menu.logout"/></a>
-            </sec:authorize>
-        </td>
-    </tr>
-</table>
+    <ul class="menu">
+        <li> <a href="/"><s:message code="menu.mainPage"/></a></li>
+        <sec:authorize access="hasRole('ROLE_ADMIN')">
+            <li><a href="/admin"><s:message code="menu.adminPage"/></a></li>
+        </sec:authorize>
 
-<h2>Pjeski application</h2>
-<a href="/">Start</a>
+        <li><a href="/shelter/create">Dodaj schronisko</a></li>
 
-<a href="/shelter/create">Dodaj schronisko</a>
-<a href="/shelter/find-by-city">Szukaj schronisko</a>
-<a href="/animal/find-by-city">Szukaj zwierzaka</a>
-<a href="/shelter/list">Lista schronisk</a>
-<a href="/animal/list">Lista zwierzaków</a>
+        <li><a href="/shelter/find-by-city">Szukaj schronisko</a></li>
+
+        <li><a href="/animal/find-by-city">Szukaj zwierzaka</a></li>
+
+        <li><a href="/shelter/list">Lista schronisk</a></li>
+
+        <li><a href="/animal/list">Lista zwierzaków</a></li>
+
+        <li><a href="/about">Twórcy</a></li>
+
+        <sec:authorize access="hasRole('ANONYMOUS')">
+            <li><a href="/login"><s:message code="menu.login"/></a>&nbsp;&nbsp;</li>
+            <li><a href="/register"><s:message code="menu.register"/></a>&nbsp;&nbsp;</li>
+        </sec:authorize>
+
+        <sec:authorize access="isAuthenticated()">
+            <li><a href="/profil"><s:message code="menu.profil"/></a></li>
+            <li><a href="/logout"><s:message code="menu.logout"/></a></li>
+        </sec:authorize>
+    </ul>
+</nav>
+</header>
 </body>
 </html>

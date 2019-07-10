@@ -29,8 +29,6 @@ public class AnimalService {
         return animalRepository.findById(id);
     }
 
-    public List<Animal> getAnimalByShelterCity(){return animalRepository.findAll();}
-
     public void editAnimal(Animal animal) {
         animalRepository.save(animal);
     }
@@ -50,6 +48,18 @@ public class AnimalService {
         return animalRepository.findAnimalByShelter_City(city);
     }
 
+    public List<Animal> getAnimalsByAnimalType(AnimalType animalType) {
+        return animalRepository.findAnimalByAnimalType(animalType);
+    }
+
+//    public List<Animal> getAnimalByEstimatedAge(Integer estimatedAge) {
+//        return animalRepository.findAnimalByEstimatedAge(estimatedAge);
+//    }
+
+//    public List<Animal> getAnimalByWeight(Integer weight) {
+//        return animalRepository.findAnimalByWeight(weight);
+//    }
+
     public List<Animal> getAnimalByEstimatedAge(Integer estimatedAge) {
         return animalRepository.findAnimalByEstimatedAge(estimatedAge);
     }
@@ -61,5 +71,4 @@ public class AnimalService {
     public List<Animal> getAnimalByAnimalType(AnimalType animalType) {
         return animalRepository.findAnimalByAnimalType(animalType);
     }
-
 }

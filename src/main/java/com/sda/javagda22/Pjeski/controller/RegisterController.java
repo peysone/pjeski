@@ -14,42 +14,48 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
 import java.util.Locale;
 
 @Controller
 @RequiredArgsConstructor
-
 public class RegisterController {
 
-@Autowired
+    @Autowired
     private UserServiceInterface userServiceInterface;
 
-@Autowired
-MessageSource messageSource;
+    @Autowired
+    MessageSource messageSource;
 
-@GetMapping("/register")
-public String registerForm(Model model){
-    User user = new User();
-    model.addAttribute("user", user);
-    return "register";
-}
+    @Autowired
+    UserRegisterValidator userRegisterValidator;
 
-@PostMapping("/adduser")
-    public String addUser(User user, BindingResult result, Model model, Locale locale){
-    String returnPage = null;
 
-    User userExist = userServiceInterface.findUserByEmail(user.getEmail());
 
-    new UserRegisterValidator().validateEmailExist(userExist, result);
 
-    new UserRegisterValidator().validate(user, result);
+    @GetMapping("/register")
+    public String registerForm(Model model) {
+        User user = new User();
+        model.addAttribute("user", user);
+        return "register/register";
+    }
 
-    if (result.hasErrors()) {
-        returnPage = "register";
-    } else {
-        userServiceInterface.saveUser(user);
-        model.addAttribute("message", messageSource.getMessage("user.register.success", null, locale));
-        model.addAttribute("user", new User());
+    @PostMapping("/adduser")
+    public String addUser(@Valid User user, BindingResult result, Model model, Locale locale) {
+
+        String returnPage;
+
+        userRegisterValidator.validateEmailExist(user.getEmail(), result);
+
+        userRegisterValidator.validate(user, result);
+
+        if (result.hasErrors()) {
+//            model.addAttribute("user", user);
+            returnPage = "/register/register";
+        } else {
+            userServiceInterface.saveUser(user);
+            model.addAttribute("message", messageSource.getMessage("user.register.success", null, locale));
+            model.addAttribute("user", new User());
 //        user.setActivationCode(PjeskiUtils.randomStringGenerator());
 //
 //        String content = "Wymagane potwierdzenie rejestracji. Kliknij w poniższy link aby aktywować konto: " +
@@ -59,11 +65,12 @@ public String registerForm(Model model){
 //        emailSender.sendEmail(user.getEmail(), "Potwierdzenie rejestracji", content);
 //        model.addAttribute("message", messageSource.getMessage("user.register.success.email", null, locale));
 //        //model.addAttribute("user", new User());
-        returnPage = "register";
-    }
 
-    return returnPage;
-}
+            returnPage = "/login";
+        }
+
+        return returnPage;
+    }
 
 
 }

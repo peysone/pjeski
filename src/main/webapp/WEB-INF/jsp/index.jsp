@@ -1,25 +1,30 @@
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <title>Strona główna</title>
+    <link rel="stylesheet" href="/resources/css/main.css"/>
 </head>
 <body>
 <%@include file="fragments/header.jspf" %>
-<h2><% out.print("Witaj w aplikacji pJeski - co chcesz zrobić?");%></h2>
-<a href="/animal/find-by-city">Szukaj zwierzaka</a><br>
+<section id="home" class="section">
+    <h2><% out.print("Witaj w aplikacji pJeski. Proszę wybrać miasto aby wyszukać zwierzęta do adopcji.");%></h2>
 
-<a href="/shelter/find-by-city">Szukaj schroniska</a>
-<%--<a href="name.jsp">NAME exception bo samo name http://localhost:8080/name.jsp</a><br>--%>
-<%--<a href="name.jsp?name=">NAME exception link bez parametru name http://localhost:8080/name.jsp?name=</a><br>--%>
-<%--<a href="name.jsp?name=janusz">NAME z prawidłowym linkiem (ale z mala pierwszą literą) http://localhost:8080/name.jsp?=janusz</a><br>--%>
-<%--<a href="counter.jsp">licznik odsłon strony.jsp</a><br>--%>
-<%--<a href="predefined2.jsp">ćwiczenie pedefined.jsp bez print.out</a>--%>
-
-<%!
-    private int visitCount = 0;
-%>
-<h2>Ilosc odwiedzin strony: <%= ++visitCount%></h2><br>
-</form>
-<%@include file="fragments/footer.jspf" %>
+    <form:form action="/animal/find-by-city" method="POST" modelAttribute="filterForm">
+        Miasto: <select name="city">
+        <c:forEach items="${allCities}" var="city">
+            <option>${city}</option>
+        </c:forEach>
+    </select>
+        <input type="submit" value="Szukaj!"/>
+    </form:form>
+</section>
+<div id="footer">
+    <%!private static int visitCount = 0;%>
+    <h2>Ilość odwiedzin strony: <%= ++visitCount%>
+    </h2>
+    <%@include file="fragments/footer.jspf" %>
+</div>
 </body>
 </html>

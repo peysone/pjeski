@@ -20,14 +20,11 @@ public class Animal {
     private String dateSinceInShelter; // month & year przyjęcia do schroniska
 
     private Boolean isPurebred;
-    private Boolean isAvalaibleToAdoption;
-    private Boolean isAvailabraForAWalk;
+    private Boolean isAvailableToAdoption;
+    private Boolean isAvailableForAWalk;
     private AnimalType animalType;
     private AnimalSex animalSex;
     private Integer weight;
     @ManyToOne
     private Shelter shelter;
-
-//foty dodajemy w JSP
-
 }

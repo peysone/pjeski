@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -35,10 +36,14 @@ public class UserService implements UserServiceInterface{
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);
-        Role role = roleRepository.findByRole("ROLE_ADMIN");
+        Role role = roleRepository.findByRole("ROLE_USER");
         user.setRoles(new HashSet<Role>(Arrays.asList(role)));
 
         userRepository.save(user);
 
+    }
+
+    public Optional<User> getUserById(Long userId) {
+        return userRepository.findById(userId);
     }
 }

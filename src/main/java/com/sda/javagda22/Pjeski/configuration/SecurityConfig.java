@@ -42,21 +42,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/index").permitAll()
-                .antMatchers("/login-user").permitAll()
+                .antMatchers("/profil").permitAll()
+                .antMatchers("/about").permitAll()
+                .antMatchers("/login").permitAll()
                 .antMatchers("/shelter/**").permitAll()
                 .antMatchers("/admin/**").permitAll()
-                .antMatchers("/register").permitAll()
+                .antMatchers("/register/**").permitAll()
                 .antMatchers("/adduser").permitAll()
                 .antMatchers("/h2-console").permitAll()
                 .antMatchers("/animal/**").permitAll()
-                .antMatchers("/src/main/webapp/WEB-INF/resources/css/**").permitAll()
-                .antMatchers("/src/main/webapp/WEB-INF/resources/images/**").permitAll()
+                .antMatchers("/user/**").permitAll()
+                .antMatchers("/src/main/webapp/WEB-INF/static/css/**").permitAll()
+                .antMatchers("/src/main/webapp/WEB-INF/static/images/**").permitAll()
+                .antMatchers("/src/main/resources/static/images/**").permitAll()
                 .antMatchers("/activatelink/**").permitAll()
-		        .antMatchers("/admin").hasAuthority("ROLE_ADMIN")
+//                .antMatchers("/admin").hasAuthority("ROLE_ADMIN")
                 .anyRequest().authenticated()
                 .and().csrf().disable()
                 .formLogin()
-                .loginPage("/login-page")
+                .loginPage("/login")
                 .failureUrl("/login?error=true")
                 .defaultSuccessUrl("/").usernameParameter("email")
                 .passwordParameter("password")
@@ -67,7 +71,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public void configure(WebSecurity webSec) throws Exception {
         webSec.ignoring()
-                .antMatchers("/resources/**", "/statics/**", "/src/main/webapp/WEB-INF/resources/css/**", "/js/**", "/src/main/webapp/WEB-INF/resources/images/**", "/incl/**");
+                .antMatchers("/resources/**", "/static/**", "/js/**",
+                        "/src/main/webapp/WEB-INF/static/images/**",
+                        "/src/main/webapp/WEB-INF/jsp/fragments/**");
     }
 
 }
