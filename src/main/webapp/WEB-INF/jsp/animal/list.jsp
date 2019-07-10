@@ -23,8 +23,9 @@
 
 <c:forEach items="${animals}" var="animal">
     <a><b>${animal.animalType} ${animal.name} </b></a><br/>
-    <a><b>Wiek: </b></a>${animal.estimatedAge} <br/>
+    <a><b> Wiek: </b></a>${animal.estimatedAge} <br/>
     <a><b> Płeć: </b></a>${animal.animalSex} <br/>
+    <a><b> Zdjęcie: </b></a><img src="${animal.pic}" height="300" width="300"> <br/>
     <a><b> Opis: </b></a>${animal.description} <br/>
     <a><b> Rasa: </b></a>${animal.breed} <br/>
     <a><b> Schronisko:</b></a> ${animal.shelter.name}<br/>
