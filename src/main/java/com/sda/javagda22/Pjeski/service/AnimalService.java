@@ -52,13 +52,6 @@ public class AnimalService {
         return animalRepository.findAnimalByAnimalType(animalType);
     }
 
-//    public List<Animal> getAnimalByEstimatedAge(Integer estimatedAge) {
-//        return animalRepository.findAnimalByEstimatedAge(estimatedAge);
-//    }
-
-//    public List<Animal> getAnimalByWeight(Integer weight) {
-//        return animalRepository.findAnimalByWeight(weight);
-//    }
 
     public List<Animal> getAnimalByEstimatedAge(Integer estimatedAge) {
         return animalRepository.findAnimalByEstimatedAge(estimatedAge);

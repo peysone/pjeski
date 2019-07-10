@@ -107,7 +107,7 @@ public class AnimalController {
     @PostMapping("/filter-by-type")
     public String filterAnimalByType(@ModelAttribute("filterForm") FilterForm filterForm,
                                      Model model) {
-        List<Animal> animals = animalService.getAnimalsByAnimalType(filterForm.getAnimalType());
+        List<Animal> animals = animalService.getAnimalByAnimalType(filterForm.getAnimalType());
         model.addAttribute("animals", animals);
         return "animal/list";
     }
