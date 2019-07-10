@@ -1,12 +1,15 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/resources/css/main.css"/>
     <title>Edit animal</title>
 </head>
 <body>
@@ -40,15 +43,14 @@
     <input type="submit" value="Zapisz zmiany"/>
     <a href="/animal/list">Odrzuć zmiany</a>
 
-    <%
-        Date dNow = new Date();
-        SimpleDateFormat ft = new SimpleDateFormat("E dd.MM.yyyy");
-        out.print("<h2 align=\"center\">" + ft.format(dNow) + "</h2>"); %>
-
     <%--    Robi to samo co <a href="/animal/list">Odrzuć zmiany</a> tylko ze jest jako button--%>
     <%--    <input type="button" value="Odrzuć zmiany"--%>
     <%--           onclick="window.location.href='/animal/list'"/>--%>
 </form:form>
+<%
+    Date dNow = new Date();
+    SimpleDateFormat ft = new SimpleDateFormat("E dd.MM.yyyy");
+    out.print("<h2 align=\"center\">" + ft.format(dNow) + "</h2>"); %>
 <%@include file="../fragments/footer.jspf" %>
 </body>
 </html>

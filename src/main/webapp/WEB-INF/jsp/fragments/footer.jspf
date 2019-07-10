@@ -4,9 +4,13 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/resources/css/footer.css"/>
 </head>
 <body>
-<p>Github: <a href="https://github.com/peysone/pjeski">
-    https://github.com/peysone/pjeski</a>.</p>
+<div id="container">
+    <div id="footer">
+        <p>Github: <a href="https://github.com/peysone/pjeski">https://github.com/peysone/pjeski</a></p>
+    </div>
+</div>
 </body>
 </html>

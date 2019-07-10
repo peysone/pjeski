@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
 import java.util.Locale;
 
 @Controller
@@ -26,6 +27,12 @@ public class RegisterController {
     @Autowired
     MessageSource messageSource;
 
+    @Autowired
+    UserRegisterValidator userRegisterValidator;
+
+
+
+
     @GetMapping("/register")
     public String registerForm(Model model) {
         User user = new User();
@@ -34,17 +41,17 @@ public class RegisterController {
     }
 
     @PostMapping("/adduser")
-    public String addUser(User user, BindingResult result, Model model, Locale locale) {
-        String returnPage = null;
+    public String addUser(@Valid User user, BindingResult result, Model model, Locale locale) {
 
-        User userExist = userServiceInterface.findUserByEmail(user.getEmail());
+        String returnPage;
 
-        new UserRegisterValidator().validateEmailExist(userExist, result);
+        userRegisterValidator.validateEmailExist(user.getEmail(), result);
 
-        new UserRegisterValidator().validate(user, result);
+        userRegisterValidator.validate(user, result);
 
         if (result.hasErrors()) {
-            returnPage = "register";
+//            model.addAttribute("user", user);
+            returnPage = "/register/register";
         } else {
             userServiceInterface.saveUser(user);
             model.addAttribute("message", messageSource.getMessage("user.register.success", null, locale));
@@ -58,7 +65,8 @@ public class RegisterController {
 //        emailSender.sendEmail(user.getEmail(), "Potwierdzenie rejestracji", content);
 //        model.addAttribute("message", messageSource.getMessage("user.register.success.email", null, locale));
 //        //model.addAttribute("user", new User());
-            returnPage = "register";
+
+            returnPage = "/login";
         }
 
         return returnPage;

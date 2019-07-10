@@ -8,6 +8,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
+    <link rel="stylesheet" href="/resources/css/main.css"/>
     <title><s:message code="profil.userDane"/></title>
 </head>
 <body>
@@ -23,7 +24,7 @@
             <s:message code="register.email"/>
         </td>
         <td width="270" align="left">
-            <c:out value="${user.email }"/>
+            <c:out value="${user.email}"/>
         </td>
     </tr>
 
@@ -32,7 +33,7 @@
             <s:message code="register.name"/>
         </td>
         <td width="270" align="left">
-            <c:out value="${user.firstName }"/>
+            <c:out value="${user.firstName}"/>
         </td>
     </tr>
 
@@ -41,7 +42,7 @@
             <s:message code="register.lastName"/>
         </td>
         <td width="270" align="left">
-            <c:out value="${user.lastName }"/>
+            <c:out value="${user.lastName}"/>
         </td>
     </tr>
 
@@ -51,7 +52,7 @@
         </td>
         <td width="270" align="left">
             <c:choose>
-                <c:when test="${user.active == 1 }">
+                <c:when test="${user.active == 1}">
                     <s:message code="word.tak"/>
                 </c:when>
                 <c:otherwise>
@@ -67,7 +68,7 @@
         </td>
         <td width="270" align="left">
             <c:choose>
-                <c:when test="${user.roleNr == 1 }">
+                <c:when test="${user.roleNr == 1}">
                     <s:message code="word.admin"/>
                 </c:when>
                 <c:otherwise>
@@ -93,6 +94,6 @@
     <%--</tr>--%>
 <%--</table>--%>
 
-
+<%@include file="../fragments/footer.jspf" %>
 </body>
 </html>
