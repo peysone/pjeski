@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**").permitAll()
                 .antMatchers("/register/**").permitAll()
                 .antMatchers("/adduser").permitAll()
-                .antMatchers("/h2-console").permitAll()
+                .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/animal/**").permitAll()
                 .antMatchers("/user/**").permitAll()
                 .antMatchers("/src/main/webapp/WEB-INF/static/css/**").permitAll()

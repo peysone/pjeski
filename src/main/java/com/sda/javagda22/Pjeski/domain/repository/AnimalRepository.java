@@ -11,12 +11,11 @@ public interface AnimalRepository extends JpaRepository<Animal, Long> {
 
     List<Animal> findAnimalByShelter_City(String city);
 
-    List<Animal> findAnimalByEstimatedAge(Integer age);
-
 //    List<Animal> findAnimalByWeight(Integer weight);
 
     List<Animal> findAnimalByAnimalType(AnimalType animalType);
 
+    List<Animal> findAnimalByEstimatedAge(Integer estimatedAge);
 
     List<Animal> findAnimalByWeight(Integer weight);
 
