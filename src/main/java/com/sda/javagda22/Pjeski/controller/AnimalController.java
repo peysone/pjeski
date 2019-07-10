@@ -137,6 +137,8 @@ public class AnimalController {
         List<Visit> visits = visitService.getAllVisits();
         model.addAttribute("visits", visits);
         return "animal/list-visit";
+
+    }
       
     @GetMapping("/filter-by-age")
     public String filterByAgeForm(Model model) {
@@ -171,17 +173,4 @@ public class AnimalController {
         return "animal/list";
     }
 
-    @GetMapping("/filter-by-type")
-    public String filterAnimalsByType(Model model) {
-        model.addAttribute("filterForm", new FilterForm());
-        return "animal/coś";
-    }
-
-    @PostMapping("/filter-by-type")
-    public String filterAnimalByType(@ModelAttribute("filterForm") FilterForm filterForm,
-                                     Model model) {
-        List<Animal> animals = animalService.getAnimalByAnimalType(filterForm.getAnimalType());
-        model.addAttribute("animals", animals);
-        return "animal/list";
-    }
 }

@@ -68,7 +68,5 @@ public class AnimalService {
         return animalRepository.findAnimalByWeight(weight);
     }
 
-    public List<Animal> getAnimalByAnimalType(AnimalType animalType) {
-        return animalRepository.findAnimalByAnimalType(animalType);
     }
-}
+
