@@ -3,6 +3,7 @@ package com.sda.javagda22.Pjeski.controller;
 import com.sda.javagda22.Pjeski.domain.model.FilterForm;
 import com.sda.javagda22.Pjeski.domain.model.Shelter;
 import com.sda.javagda22.Pjeski.service.ShelterService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +67,19 @@ public class ShelterController {
         return "shelter/list";
     }
 
+    @GetMapping("/shelter-shelter/{shelter.name}")
+    public String shelterPage(Model model) {
+        model.addAttribute("filterForm", new FilterForm());
+        return "shelter/list";
+    }
+
+    @PostMapping("/shelter-shelter/{shelter.name}")
+    public String shelterPageF(@ModelAttribute("filterForm") FilterForm filterForm,
+                               Model model) {
+        List<Shelter> shelters = shelterService.findSheltersByCityContaining(filterForm.getCity());
+        model.addAttribute("shelters", shelters);
+        return "shelter/list";
+    }
 
 
 }
