@@ -14,17 +14,17 @@ public class Animal {
     private Long Id;
     private String identificationNumber; //    nr identyfikacyjny w schronisku - może też być nr chipa
     private String description;
+    private String pic;
     private String name;
     private Integer estimatedAge; //    age orientacyjnie
     private String breed;
     private String dateSinceInShelter; // month & year przyjęcia do schroniska
-    private String pic;
     private Boolean isPurebred;
     private Boolean isAvailableToAdoption;
     private Boolean isAvailableForAWalk;
     private AnimalType animalType;
     private AnimalSex animalSex;
-    private Integer weight;
+    private AnimalWeight weight;
     @ManyToOne
     private Shelter shelter;
 }
