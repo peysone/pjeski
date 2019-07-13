@@ -5,6 +5,8 @@ import com.sda.javagda22.Pjeski.domain.model.User;
 import com.sda.javagda22.Pjeski.domain.repository.RoleRepository;
 import com.sda.javagda22.Pjeski.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +38,7 @@ public class UserService implements UserServiceInterface{
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);
-        Role role = roleRepository.findByRole("ROLE_USER");
+        Role role = roleRepository.findByRole("USER");
         user.setRoles(new HashSet<Role>(Arrays.asList(role)));
 
         userRepository.save(user);
@@ -45,5 +47,10 @@ public class UserService implements UserServiceInterface{
 
     public Optional<User> getUserById(Long userId) {
         return userRepository.findById(userId);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+        return userRepository.findByEmail(s);
     }
 }

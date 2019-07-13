@@ -1,5 +1,4 @@
 package com.sda.javagda22.Pjeski.controller;
-
 import com.sda.javagda22.Pjeski.domain.model.FilterForm;
 import com.sda.javagda22.Pjeski.domain.model.Visit;
 import com.sda.javagda22.Pjeski.domain.model.animal.Animal;
@@ -29,15 +28,14 @@ public class AnimalController {
     // Szuca - od teraz animala dodajemy od razu do schroniska, ponieważ bez sensu jest dodawać go bez przypisania do schroniska
     //więc posłużyłam sie kodem z kliniki i stworzyłam coś takiego i tu tylko cerate jest zmienione
     @GetMapping("/create/{shelterId}")
-    public String createAnimal(Model model, @PathVariable("shelterId") Long shelterId) {
+    public String createAnimal(Model model, @PathVariable("shelterId") Long shelterId ) {
         model.addAttribute("animal", new Animal());
         model.addAttribute("shelterId", shelterId);
         return "animal/form";
     }
 
     @PostMapping("/create/{shelterId}")
-    public String createAnimal(@ModelAttribute("animal") Animal animal,
-                               @PathVariable("shelterId") Long shelterId) {
+    public String createAnimal(@ModelAttribute("animal") Animal animal, @PathVariable("shelterId") Long shelterId) {
         animalService.createAnimal(animal, shelterId);
 
         return "redirect:/shelter/list";
@@ -75,8 +73,8 @@ public class AnimalController {
     }
 
 
-    @GetMapping("/delete/{id}")
-    public String deleteAnimalById(@PathVariable("id") Long id) {
+    @GetMapping("/delete{id}")
+    public String deleteAnimalById(@PathVariable("id")Long id){
         animalService.deleteById(id);
         return "redirect:/animal/list";
     }
@@ -107,14 +105,13 @@ public class AnimalController {
     @PostMapping("/filter-by-type")
     public String filterAnimalByType(@ModelAttribute("filterForm") FilterForm filterForm,
                                      Model model) {
-        List<Animal> animals = animalService.getAnimalByAnimalType(filterForm.getAnimalType());
+        List<Animal> animals = animalService.getAnimalsByAnimalType(filterForm.getAnimalType());
         model.addAttribute("animals", animals);
         return "animal/list";
     }
 
     @GetMapping("/visit/{animalId}")
-    public String createVisit(Model model,
-                              @PathVariable("animalId") Long animalId
+    public String createVisit(Model model, @PathVariable("animalId") Long animalId
 //            , @PathVariable("userId") Long userId
     ) {
         model.addAttribute("visit", new Visit());
@@ -139,5 +136,4 @@ public class AnimalController {
         model.addAttribute("visits", visits);
         return "animal/list-visit";
     }
-
 }

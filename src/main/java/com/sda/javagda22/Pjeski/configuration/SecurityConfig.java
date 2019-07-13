@@ -1,5 +1,6 @@
 package com.sda.javagda22.Pjeski.configuration;
 
+import com.sda.javagda22.Pjeski.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
@@ -23,6 +25,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private BCryptPasswordEncoder bcp;
 
     @Autowired
+    private UserService userService;
+
+    @Autowired
     private DataSource ds;
 
     @Value("${spring.queries.users-query}")
@@ -32,9 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private String rolesQuery;
 
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().usersByUsernameQuery(usersQuery)
-                .authoritiesByUsernameQuery(rolesQuery)
-                .dataSource(ds).passwordEncoder(bcp);
+        auth.userDetailsService(userService)
+        .passwordEncoder(bcp);
     }
 
     protected void configure(HttpSecurity httpSec) throws Exception {
@@ -42,28 +46,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/index").permitAll()
-                .antMatchers("/profil").permitAll()
-                .antMatchers("/about").permitAll()
                 .antMatchers("/login").permitAll()
-                .antMatchers("/shelter/**").permitAll()
-                .antMatchers("/admin/**").permitAll()
+                .antMatchers("/h2-console").permitAll()
+                .antMatchers("/src/main/resources/static/images/**").permitAll()
+                .antMatchers("/admin").hasAuthority("ADMIN")
+//                .antMatchers("/shelter/**").permitAll()
+//                .antMatchers("/profil").permitAll()
+//                .antMatchers("/about").permitAll()
                 .antMatchers("/register/**").permitAll()
                 .antMatchers("/adduser").permitAll()
-                .antMatchers("/h2-console/**").permitAll()
-                .antMatchers("/animal/**").permitAll()
-                .antMatchers("/user/**").permitAll()
-                .antMatchers("/src/main/webapp/WEB-INF/static/css/**").permitAll()
-                .antMatchers("/src/main/webapp/WEB-INF/static/images/**").permitAll()
-                .antMatchers("/src/main/resources/static/images/**").permitAll()
-                .antMatchers("/activatelink/**").permitAll()
-//                .antMatchers("/admin").hasAuthority("ROLE_ADMIN")
+//                .antMatchers("/animal/**").permitAll()
+//                .antMatchers("/user/**").permitAll()
                 .anyRequest().authenticated()
                 .and().csrf().disable()
-                .formLogin().permitAll()
-//                .loginPage("/login")
-                .failureUrl("/login?error=true")
-                .defaultSuccessUrl("/").usernameParameter("email")
-                .passwordParameter("password")
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/", true)
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/")
                 .and().exceptionHandling().accessDeniedPage("/denied");
