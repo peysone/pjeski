@@ -77,6 +77,6 @@ public class ShelterController {
                                @PathVariable("shelterId") Long shelterId) {
         Optional<Shelter> shelters = shelterService.getShelterById(shelterId);
         model.addAttribute("shelters", shelters);
-        return "shelter/list";
+        return "redirect:shelter/list";
     }
 }
