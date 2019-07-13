@@ -61,5 +61,7 @@ public class AnimalService {
         return animalRepository.findAnimalByWeight(weight);
     }
 
+    public List<Animal> getAnimalsByShelterId(Long shelterId) {
+        return animalRepository.findAnimalByShelterId(shelterId);
     }
-
+}
