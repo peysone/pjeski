@@ -33,8 +33,10 @@
         <a><b> Do adopcji: </b></a>${animal.isAvailableToAdoption} <br/>
         <a><b> Na spacer:</b></a> ${animal.isAvailableForAWalk}<br/>
         <a href="/animal/visit/${animal.id}">Umów wizytę</a><br/>
+        <sec:authorize access = "hasRole('ROLE_ADMIN_SHELTER')">
         <a href="/animal/edit/${animal.id}">Edycja zwierzaka</a>
         <a href="/animal/delete/${animal.id}">Usun zwierzaka</a>
+        </sec:authorize>
         <br><br>
     </c:forEach>
 </section>

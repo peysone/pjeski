@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html;charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="s"  uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
@@ -12,7 +12,7 @@
     <title><s:message code="profil.userDane"/></title>
 </head>
 <body>
-<%--<%@include file="/WEB-INF/incl/menu.app" %>--%>
+<%@include file="../fragments/header.jspf" %>
 <div align="center">
     <h2><s:message code="profil.userDane"/></h2>
 </div>
@@ -80,19 +80,19 @@
 
 </table>
 
-<%--<table width="500" border="0" cellpadding="4" cellspacing="1" align="center">--%>
+<table width="500" border="0" cellpadding="4" cellspacing="1" align="center">
 
     <%--<tr>--%>
         <%--<td align="center">--%>
             <%--<input type="button" value="<s:message code="button.edycjaProfilu"/>"--%>
                    <%--onclick="window.location.href='${pageContext.request.contextPath}/editprofil'"/>--%>
         <%--</td>--%>
-        <%--<td align="center">--%>
-            <%--<input type="button" value="<s:message code="button.zmianaHasla"/>"--%>
-                   <%--onclick="window.location.href='${pageContext.request.contextPath}/editpassword'"/>--%>
-        <%--</td>--%>
+        <td align="center">
+            <input type="button" value="<s:message code="button.zmianaHasla"/>"
+                   onclick="window.location.href='${pageContext.request.contextPath}/edit-password'"/>
+        </td>
     <%--</tr>--%>
-<%--</table>--%>
+</table>
 
 <%@include file="../fragments/footer.jspf" %>
 </body>

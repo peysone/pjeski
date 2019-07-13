@@ -31,6 +31,8 @@ public class User implements UserDetails {
     @NotNull
     private String password;
     @Transient
+    private String newPassword;
+    @Transient
     private int roleNr;
     @NotNull
     private int active;
@@ -42,7 +44,6 @@ public class User implements UserDetails {
     private Set<Role> roles;
 //    @Transient
 //    private String operation;
-
 //    todo osiągnięcia za największe datki itp
 //    todo logowanie
 //    - tylko login widoczny dla innych w HallOfFame z powodu RODO itp
