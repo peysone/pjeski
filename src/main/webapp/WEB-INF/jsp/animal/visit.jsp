@@ -17,7 +17,7 @@
 <form:form action="/animal/visit/${animalId}" method="POST" modelAttribute="visit">
     Opis: <form:input path="description"/> <br/>
     Data wizyty: <form:input path="date"/> <br/>
-    <%--    Id użytkownika: <form:input path="user.id"/> <br/>--%>
+    Id użytkownika:<a>${userId}</a> <br/>
 
     <form:hidden path="animal.id"/>
     <form:hidden path="user.id"/>
