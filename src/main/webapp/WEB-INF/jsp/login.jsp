@@ -29,7 +29,7 @@
                 <s:message code="register.email"/>
             </td>
             <td align="left">
-                <input type="text" name="email" id="email"
+                <input type="text" name="username" id="username"
                        size="30"/>
             </td>
         </tr>
