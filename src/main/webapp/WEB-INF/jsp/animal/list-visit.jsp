@@ -18,7 +18,7 @@
     <c:forEach items="${visits}" var="visit">
         <a><b>Id wizyty: </b></a>${visit.id} <br/>
         <a><b>Id zwierzaka: </b></a>${visit.animal.id} <br/>
-        <a><b>Id użytkownika: </b></a>${visit.user.id} <br/>
+        <a><b>Id użytkownika: </b></a>${visit.user.name} <br/>
         <a><b>Opis: </b></a>${visit.description} <br/>
         <a><b>Data:</b></a> ${visit.date}<br/>
         <br/>

@@ -1,5 +1,4 @@
 package com.sda.javagda22.Pjeski.controller;
-
 import com.sda.javagda22.Pjeski.domain.model.FilterForm;
 import com.sda.javagda22.Pjeski.domain.model.Visit;
 import com.sda.javagda22.Pjeski.domain.model.animal.Animal;
@@ -78,7 +77,7 @@ public class AnimalController {
 
 
     @GetMapping("/delete{id}")
-    public String deleteAnimalById(@PathVariable("id") Long id) {
+    public String deleteAnimalById(@PathVariable("id")Long id){
         animalService.deleteById(id);
         return "redirect:/animal/list";
     }
@@ -98,6 +97,7 @@ public class AnimalController {
         model.addAttribute("animals", animals);
         return "animal/list";
     }
+
 
     @GetMapping("/filter-by-type")
     public String filterAnimalsByType(Model model) {
