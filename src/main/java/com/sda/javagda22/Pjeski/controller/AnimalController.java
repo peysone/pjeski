@@ -119,7 +119,7 @@ public class AnimalController {
         Long userId = userService.getLoggedUserId();
         model.addAttribute("visit", new Visit());
         model.addAttribute("animalId", animalId);
-        model.addAttribute("userId", 1L);
+        model.addAttribute("userId", userId);
         return "animal/visit";
     }
 
