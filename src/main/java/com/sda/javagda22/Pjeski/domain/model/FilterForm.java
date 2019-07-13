@@ -5,13 +5,13 @@ import lombok.Data;
 
 @Data
 public class FilterForm {
-	//do szukania po mieście
 	private String city;
 
-	//do szukania po wieku
 	private Integer estimatedAge;
 
 	private Integer weight;
 
 	private AnimalType animalType;
+
+	private Shelter shelter;
 }

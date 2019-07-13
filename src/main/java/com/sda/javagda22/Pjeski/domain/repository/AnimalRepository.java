@@ -20,4 +20,6 @@ public interface AnimalRepository extends JpaRepository<Animal, Long> {
     List<Animal> findAnimalByWeight(Integer weight);
 
     List<Animal> findAnimalByAnimalType(AnimalType animalType);
+
+    List<Animal> findAnimalByShelterId(Long shelterId);
 }
