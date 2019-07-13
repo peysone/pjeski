@@ -18,7 +18,7 @@
         <h3>Nie znaleziono schroniska!</h3>
     </c:if>
     <c:forEach items="${shelters}" var="shelter">
-        <a><b>Nazwa schroniska:</b></a> <a href="/shelter/shelter-shelter">${shelter.name} <br/>
+        <a><b>Nazwa schroniska:</b></a> <a href="/shelter/animals/${shelter.id}">${shelter.name} <br/>
         <%--<a><b>Adres:</b></a> ${shelter.address} <br/>--%>
         <%--<a><b>Kod pocztowy: </b></a>${shelter.postalCode} <br/>--%>
         <a><b>Miasto:</b></a> ${shelter.city} <br/>

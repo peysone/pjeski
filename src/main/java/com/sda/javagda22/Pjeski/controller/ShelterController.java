@@ -2,6 +2,8 @@ package com.sda.javagda22.Pjeski.controller;
 
 import com.sda.javagda22.Pjeski.domain.model.FilterForm;
 import com.sda.javagda22.Pjeski.domain.model.Shelter;
+import com.sda.javagda22.Pjeski.domain.model.animal.Animal;
+import com.sda.javagda22.Pjeski.service.AnimalService;
 import com.sda.javagda22.Pjeski.service.ShelterService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.RequiredArgsConstructor;
