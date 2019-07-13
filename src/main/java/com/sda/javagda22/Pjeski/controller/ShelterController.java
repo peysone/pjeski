@@ -22,8 +22,11 @@ public class ShelterController {
     @Autowired
     private final ShelterService shelterService;
 
+    @Autowired
+    private final AnimalService animalService;
+
     @GetMapping("/")
-    public String index(){
+    public String index() {
         return "index";
     }
 
@@ -65,18 +68,25 @@ public class ShelterController {
         return "shelter/list";
     }
 
-    @GetMapping("/shelter-shelter")
-    public String shelterPage(Model model) {
-        model.addAttribute("filterForm", new FilterForm());
-        return "shelter/list";
+    @GetMapping("/animals/{shelterId}")
+    public String shelterPage(Model model, @PathVariable("shelterId") Long shelterId) {
+        List<Animal> animals = animalService.getAnimalsByShelterId(shelterId);
+        Optional<Shelter> maybeShelter = shelterService.getShelterById(shelterId);
+        if (!maybeShelter.isPresent()) {
+            return "shelter/list";
+        } else {
+            model.addAttribute("animals", animals);
+            model.addAttribute("shelter", maybeShelter.get());
+            return "shelter/side";
+        }
     }
 
-    @PostMapping("/shelter-shelter/{shelterId}")
+    @PostMapping("/animals/{shelterId}")
     public String shelterPageF(@ModelAttribute("filterForm") FilterForm filterForm,
                                Model model,
                                @PathVariable("shelterId") Long shelterId) {
         Optional<Shelter> shelters = shelterService.getShelterById(shelterId);
         model.addAttribute("shelters", shelters);
-        return "redirect:shelter/list";
+        return "animal/list";
     }
 }

@@ -4,7 +4,9 @@ import com.sda.javagda22.Pjeski.domain.model.Visit;
 import com.sda.javagda22.Pjeski.domain.model.animal.Animal;
 import com.sda.javagda22.Pjeski.service.AnimalService;
 import com.sda.javagda22.Pjeski.service.ShelterService;
+import com.sda.javagda22.Pjeski.service.UserService;
 import com.sda.javagda22.Pjeski.service.VisitService;
+import com.sda.javagda22.Pjeski.utilities.UserUtilities;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +30,7 @@ public class AnimalController {
     // Szuca - od teraz animala dodajemy od razu do schroniska, ponieważ bez sensu jest dodawać go bez przypisania do schroniska
     //więc posłużyłam sie kodem z kliniki i stworzyłam coś takiego i tu tylko cerate jest zmienione
     @GetMapping("/create/{shelterId}")
-    public String createAnimal(Model model, @PathVariable("shelterId") Long shelterId ) {
+    public String createAnimal(Model model, @PathVariable("shelterId") Long shelterId) {
         model.addAttribute("animal", new Animal());
         model.addAttribute("shelterId", shelterId);
         return "animal/form";
@@ -114,6 +116,8 @@ public class AnimalController {
     public String createVisit(Model model, @PathVariable("animalId") Long animalId
 //            , @PathVariable("userId") Long userId
     ) {
+//        String maybeUserId = userUtilities.getLoggedUser();
+
         model.addAttribute("visit", new Visit());
         model.addAttribute("animalId", animalId);
         model.addAttribute("userId", 1L);
