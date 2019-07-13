@@ -135,51 +135,5 @@ public class AnimalController {
         List<Visit> visits = visitService.getAllVisits();
         model.addAttribute("visits", visits);
         return "animal/list-visit";
-      
-    @GetMapping("/filter-by-age")
-    public String filterByAgeForm(Model model) {
-        model.addAttribute("filterForm", new FilterForm());
-        return "animal/coś";
-        /*
-        trzeba dodać jsp = wiem że nie powinno tu byc coś,
-        tylko kolejny jsp, ale już nie mam sił na to, na dole to samo
-        Rudini
-         */
-    }
-
-    @PostMapping("/filter-by-age")
-    public String filterAnimalByAge(@ModelAttribute("filterForm") FilterForm filterForm,
-                                    Model model) {
-        List<Animal> animals = animalService.getAnimalByEstimatedAge(filterForm.getEstimatedAge());
-        model.addAttribute("animals", animals);
-        return "animal/list";
-    }
-
-    @GetMapping("/filter-by-weight")
-    public String filterAnimalByWeightForm(Model model) {
-        model.addAttribute("filterForm", new FilterForm());
-        return "animal/coś";
-    }
-
-    @PostMapping("/filter-by-weight")
-    public String filterAnimalByWeight(@ModelAttribute("filterForm") FilterForm filterForm,
-                                       Model model) {
-        List<Animal> animals = animalService.getAnimalByWeight(filterForm.getWeight());
-        model.addAttribute("animals", animals);
-        return "animal/list";
-    }
-
-    @GetMapping("/filter-by-type")
-    public String filterAnimalsByType(Model model) {
-        model.addAttribute("filterForm", new FilterForm());
-        return "animal/coś";
-    }
-
-    @PostMapping("/filter-by-type")
-    public String filterAnimalByType(@ModelAttribute("filterForm") FilterForm filterForm,
-                                     Model model) {
-        List<Animal> animals = animalService.getAnimalByAnimalType(filterForm.getAnimalType());
-        model.addAttribute("animals", animals);
-        return "animal/list";
-    }
+}
 }
