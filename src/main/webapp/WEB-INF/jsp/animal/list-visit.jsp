@@ -15,14 +15,16 @@
     <c:if test="${empty visits}">
         <h3>Nie znaleziono zwierzaka!</h3>
     </c:if>
+    <sec:authorize access = "hasRole('ADMIN')">
     <c:forEach items="${visits}" var="visit">
         <a><b>Id wizyty: </b></a>${visit.id} <br/>
         <a><b>Id zwierzaka: </b></a>${visit.animal.id} <br/>
-        <a><b>Id użytkownika: </b></a>${visit.user.name} <br/>
+        <%--<a><b>Id użytkownika: </b></a>${visit.user.id} <br/>--%>
         <a><b>Opis: </b></a>${visit.description} <br/>
         <a><b>Data:</b></a> ${visit.date}<br/>
         <br/>
     </c:forEach>
+    </sec:authorize>
 </section>
 <%@include file="../fragments/footer.jspf" %>
 </body>

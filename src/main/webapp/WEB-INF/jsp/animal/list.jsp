@@ -33,8 +33,10 @@
         <a><b> Do adopcji: </b></a>${animal.isAvailableToAdoption ? 'Tak' : 'Nie'}<br/>
         <a><b> Na spacer:</b></a> ${animal.isAvailableForAWalk ? 'Tak' : 'Nie'}<br/>
         <a href="/animal/visit/${animal.id}">Umów wizytę</a><br/>
+        <sec:authorize access = "hasRole('ADMIN')">
         <a href="/animal/edit/${animal.id}">Edycja zwierzaka</a>
         <a href="/animal/delete/${animal.id}">Usun zwierzaka</a>
+        </sec:authorize>
         ${shelter.animals.size()}
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
             <input type="hidden" name="cmd" value="_s-xclick" />
