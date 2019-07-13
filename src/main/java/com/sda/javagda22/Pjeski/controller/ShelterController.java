@@ -9,12 +9,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -67,19 +65,18 @@ public class ShelterController {
         return "shelter/list";
     }
 
-    @GetMapping("/shelter-shelter/{shelter.name}")
+    @GetMapping("/shelter-shelter")
     public String shelterPage(Model model) {
         model.addAttribute("filterForm", new FilterForm());
         return "shelter/list";
     }
 
-    @PostMapping("/shelter-shelter/{shelter.name}")
+    @PostMapping("/shelter-shelter/{shelterId}")
     public String shelterPageF(@ModelAttribute("filterForm") FilterForm filterForm,
-                               Model model) {
-        List<Shelter> shelters = shelterService.findSheltersByCityContaining(filterForm.getCity());
+                               Model model,
+                               @PathVariable("shelterId") Long shelterId) {
+        Optional<Shelter> shelters = shelterService.getShelterById(shelterId);
         model.addAttribute("shelters", shelters);
         return "shelter/list";
     }
-
-
 }
