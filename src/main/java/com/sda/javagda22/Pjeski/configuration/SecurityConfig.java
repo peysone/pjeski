@@ -3,6 +3,7 @@ package com.sda.javagda22.Pjeski.configuration;
 import com.sda.javagda22.Pjeski.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -10,8 +11,11 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
@@ -47,10 +51,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/index").permitAll()
                 .antMatchers("/login").permitAll()
-                .antMatchers("/h2-console").permitAll()
+                .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/src/main/resources/static/images/**").permitAll()
-                .antMatchers("/admin").hasAuthority("ADMIN")
-//                .antMatchers("/shelter/**").permitAll()
+//                .antMatchers("/admin").hasAuthority("ROLE_ADMIN")
+//                .antMatchers("/shelter/create").hasAuthority("ADMIN")
 //                .antMatchers("/profil").permitAll()
 //                .antMatchers("/about").permitAll()
                 .antMatchers("/register/**").permitAll()
@@ -63,7 +67,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .defaultSuccessUrl("/", true)
                 .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/")
+                .logoutSuccessUrl("/").and().headers().frameOptions().disable()
                 .and().exceptionHandling().accessDeniedPage("/denied");
     }
 

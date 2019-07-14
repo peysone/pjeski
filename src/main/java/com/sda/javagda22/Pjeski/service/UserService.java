@@ -5,6 +5,7 @@ import com.sda.javagda22.Pjeski.domain.model.User;
 import com.sda.javagda22.Pjeski.domain.repository.RoleRepository;
 import com.sda.javagda22.Pjeski.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -13,11 +14,12 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 
 @Service
 @Transactional
-public class UserService implements UserServiceInterface{
+public class UserService implements UserServiceInterface {
 
     @Autowired
     private UserRepository userRepository;
@@ -38,11 +40,21 @@ public class UserService implements UserServiceInterface{
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);
-        Role role = roleRepository.findByRole("USER");
+        Role role = roleRepository.findByRole("ROLE_USER");
         user.setRoles(new HashSet<Role>(Arrays.asList(role)));
 
         userRepository.save(user);
+    }
 
+    @Override
+    public List<User> findAll() {
+    List<User> userList = userRepository.findAll();
+        return userList;
+    }
+
+    @Override
+    public void updateUserPassword(String newPassword, String email) {
+        userRepository.updateUserPassword(bCryptPasswordEncoder.encode(newPassword), email);
     }
 
     public Optional<User> getUserById(Long userId) {
@@ -53,4 +65,9 @@ public class UserService implements UserServiceInterface{
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         return userRepository.findByEmail(s);
     }
+
+    public Long getLoggedUserId() {
+        return ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
+    }
 }
+

@@ -1,13 +1,16 @@
 package com.sda.javagda22.Pjeski.controller;
+
 import com.sda.javagda22.Pjeski.domain.model.FilterForm;
+import com.sda.javagda22.Pjeski.domain.model.User;
 import com.sda.javagda22.Pjeski.domain.model.Visit;
 import com.sda.javagda22.Pjeski.domain.model.animal.Animal;
 import com.sda.javagda22.Pjeski.service.AnimalService;
 import com.sda.javagda22.Pjeski.service.ShelterService;
+import com.sda.javagda22.Pjeski.service.UserService;
 import com.sda.javagda22.Pjeski.service.VisitService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -24,11 +27,12 @@ public class AnimalController {
     private final AnimalService animalService;
     private final ShelterService shelterService;
     private final VisitService visitService;
+    private final UserService userService;
 
     // Szuca - od teraz animala dodajemy od razu do schroniska, ponieważ bez sensu jest dodawać go bez przypisania do schroniska
     //więc posłużyłam sie kodem z kliniki i stworzyłam coś takiego i tu tylko cerate jest zmienione
     @GetMapping("/create/{shelterId}")
-    public String createAnimal(Model model, @PathVariable("shelterId") Long shelterId ) {
+    public String createAnimal(Model model, @PathVariable("shelterId") Long shelterId) {
         model.addAttribute("animal", new Animal());
         model.addAttribute("shelterId", shelterId);
         return "animal/form";
@@ -74,7 +78,7 @@ public class AnimalController {
 
 
     @GetMapping("/delete{id}")
-    public String deleteAnimalById(@PathVariable("id")Long id){
+    public String deleteAnimalById(@PathVariable("id") Long id) {
         animalService.deleteById(id);
         return "redirect:/animal/list";
     }
@@ -105,27 +109,26 @@ public class AnimalController {
     @PostMapping("/filter-by-type")
     public String filterAnimalByType(@ModelAttribute("filterForm") FilterForm filterForm,
                                      Model model) {
-        List<Animal> animals = animalService.getAnimalsByAnimalType(filterForm.getAnimalType());
+        List<Animal> animals = animalService.getAnimalByAnimalType(filterForm.getAnimalType());
         model.addAttribute("animals", animals);
         return "animal/list";
     }
 
     @GetMapping("/visit/{animalId}")
-    public String createVisit(Model model, @PathVariable("animalId") Long animalId
-//            , @PathVariable("userId") Long userId
-    ) {
+    public String createVisit(Model model, @PathVariable("animalId") Long animalId) {
+        Long userId = userService.getLoggedUserId();
         model.addAttribute("visit", new Visit());
         model.addAttribute("animalId", animalId);
-        model.addAttribute("userId", 1L);
+        model.addAttribute("userId", userId);
         return "animal/visit";
     }
 
     @PostMapping("/visit/{animalId}")
     public String createVisit(@ModelAttribute("visit") Visit visit,
                               @PathVariable("animalId") Long animalId
-//            , @PathVariable("userId") Long userId
     ) {
-        visitService.createVisit(visit, animalId, 1L);
+        Long userId = userService.getLoggedUserId();
+        visitService.createVisit(visit, animalId, userId);
 
         return "redirect:/animal/list-visit";
     }
@@ -135,5 +138,5 @@ public class AnimalController {
         List<Visit> visits = visitService.getAllVisits();
         model.addAttribute("visits", visits);
         return "animal/list-visit";
-}
+    }
 }

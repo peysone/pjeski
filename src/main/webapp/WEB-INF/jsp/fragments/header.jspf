@@ -24,8 +24,9 @@
         <sec:authorize access="hasRole('ROLE_ADMIN')">
             <li><a href="/admin"><s:message code="menu.adminPage"/></a></li>
         </sec:authorize>
-
+        <sec:authorize access="hasRole('ROLE_ADMIN')">
         <li><a href="/shelter/create">Dodaj schronisko</a></li>
+        </sec:authorize>
 
         <li><a href="/shelter/find-by-city">Szukaj schronisko</a></li>
 
