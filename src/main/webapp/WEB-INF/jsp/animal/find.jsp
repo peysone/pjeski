@@ -15,18 +15,6 @@
 <body>
 <%@include file="../fragments/header.jspf" %>
 <section id="home" class="section">
-<h2>Szukaj zwierząt według miasta:</h2>
-<form:form action="/animal/find-by-city" method="POST" modelAttribute="filterForm">
-    Miasto: <select name="city">
-    <c:forEach items="${allCities}" var="city">
-        <option>${city}</option>
-    </c:forEach>
-</select><br/>
-    <input type="submit" value="Szukaj!"/>
-</form:form>
-<br />
-<h2>lub</h2>
-<br />
 <h2>Szukaj zwierząt według rodzaju:</h2>
 <form:form action="/animal/filter-by-type" method="POST" modelAttribute="filterForm">
     Rodzaj: <form:select path="animalType"> <br />

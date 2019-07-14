@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService)
-        .passwordEncoder(bcp);
+                .passwordEncoder(bcp);
     }
 
     protected void configure(HttpSecurity httpSec) throws Exception {
@@ -51,6 +51,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/index").permitAll()
                 .antMatchers("/login").permitAll()
+                .antMatchers("/shelter/find-by-city").permitAll()
+                .antMatchers("/animal/list").permitAll()
+                .antMatchers("/shelter/list").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/src/main/resources/static/images/**").permitAll()
 //                .antMatchers("/admin").hasAuthority("ROLE_ADMIN")
@@ -71,7 +74,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().exceptionHandling().accessDeniedPage("/denied");
     }
 
-    public void configure(WebSecurity webSec) throws Exception {
+    public void configure(WebSecurity webSec) {
         webSec.ignoring()
                 .antMatchers("/resources/**", "/static/**", "/js/**",
                         "/src/main/webapp/WEB-INF/static/images/**",
@@ -79,3 +82,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 }
+

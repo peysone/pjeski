@@ -5,7 +5,6 @@ import com.sda.javagda22.Pjeski.domain.model.Shelter;
 import com.sda.javagda22.Pjeski.domain.model.animal.Animal;
 import com.sda.javagda22.Pjeski.service.AnimalService;
 import com.sda.javagda22.Pjeski.service.ShelterService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +32,7 @@ public class ShelterController {
     }
 
     @GetMapping("/create")
-    public String createShelter(Model model){
+    public String createShelter(Model model) {
         model.addAttribute("shelter", new Shelter());
         return "shelter/form";
     }
@@ -52,13 +51,9 @@ public class ShelterController {
         return "shelter/list";
     }
 
-
-    //Szuca - tutaj jest szukanie schroniska po mieście i w wyszukiwarce nie trzeba wpisywac całej nazwy,
-    // wystarczy kawałek, bo jest Containing w wyszukiwaniu
     @GetMapping("/find-by-city")
     public String findByCityForm(Model model) {
         model.addAttribute("filterForm", new FilterForm());
-//        model.addAttribute("cities", shelterService.)
         return "shelter/find";
     }
 

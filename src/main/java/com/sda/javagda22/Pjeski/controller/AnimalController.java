@@ -10,6 +10,7 @@ import com.sda.javagda22.Pjeski.service.UserService;
 import com.sda.javagda22.Pjeski.service.VisitService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +33,7 @@ public class AnimalController {
     // Szuca - od teraz animala dodajemy od razu do schroniska, ponieważ bez sensu jest dodawać go bez przypisania do schroniska
     //więc posłużyłam sie kodem z kliniki i stworzyłam coś takiego i tu tylko cerate jest zmienione
     @GetMapping("/create/{shelterId}")
+    @Secured(value = {"ROLE_ADMIN"})
     public String createAnimal(Model model, @PathVariable("shelterId") Long shelterId) {
         model.addAttribute("animal", new Animal());
         model.addAttribute("shelterId", shelterId);
@@ -39,6 +41,7 @@ public class AnimalController {
     }
 
     @PostMapping("/create/{shelterId}")
+    @Secured(value = {"ROLE_ADMIN"})
     public String createAnimal(@ModelAttribute("animal") Animal animal, @PathVariable("shelterId") Long shelterId) {
         animalService.createAnimal(animal, shelterId);
 
