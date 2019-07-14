@@ -21,6 +21,7 @@
 <%--@elvariable id="animal" type="com.sda.javagda22.Pjeski.domain.model.animal.Animal"--%>
 <form:form action="/animal/create/${shelterId}" method="POST" modelAttribute="animal">
     Numer identyfikacyjny: <form:input path="identificationNumber"/> <br/>
+    Zdjęcię: <form:input path="pic"/> <br/>
     Opis: <form:input path="description"/> <br/>
     Imię: <form:input path="name"/> <br/>
     Wiek: <form:input path="estimatedAge"/> <br/>
