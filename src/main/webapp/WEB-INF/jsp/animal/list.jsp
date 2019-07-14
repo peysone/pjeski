@@ -21,6 +21,7 @@
     <%--<c:if test="${empty shelters}">--%>
     <%--<h3>Nie znaleziono zwierząt w danym mieście!</h3>--%>
     <%--</c:if>--%>
+
     <c:forEach items="${animals}" var="animal">
         <a><b>${animal.animalType} ${animal.name} </b></a><br/>
         <a><b>Wiek: </b></a>${animal.estimatedAge} <br/>

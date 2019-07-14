@@ -13,6 +13,28 @@ VALUES ('4', '00932832', 'Pieskowa', 'Gdańsk', 'Łapa', '80-180', '4324238');
 INSERT INTO shelter(id, account_number, address, city, name, postal_code, telephone)
 VALUES ('5', '82731237', 'Kotkowa', 'Bydgoszcz', 'Bydgoszczowo', '80-180', '20328411');
 
+    INSERT INTO user(user_id, active, address, city, email, first_name, last_name, password, postal_code)
+    VALUES ('1', '1', 'Cebertowicza', 'Gdansk', 'dd@wp.pl', 'Adrian', 'Kdr', '$2a$10$7OoVsugEZnz4KPq.9SpIu.rJgm3T.WQ0eNCw2wZB78xQkq63VygpC', '80-210');
+
+    INSERT INTO user(user_id, active, address, city, email, first_name, last_name, password, postal_code)
+    VALUES ('2', '1', 'Mickiewicza', 'Gdansk', 'ww@wp.pl', 'Bogdan', 'Miśkiewicz', '$2a$10$7OoVsugEZnz4KPq.9SpIu.rJgm3T.WQ0eNCw2wZB78xQkq63VygpC', '80-210');
+
+    INSERT INTO role(role_id, role)
+    VALUES ('1', 'ROLE_ADMIN');
+
+    INSERT INTO role(role_id, role)
+    VALUES ('2', 'ROLE_USER');
+
+    INSERT INTO role(role_id, role)
+    VALUES ('3', 'ROLE_ADMIN_SHELTER');
+
+
+    INSERT INTO user_role(user_id, role_id)
+    VALUES ('1', '1');
+
+    INSERT INTO user_role(user_id, role_id)
+    VALUES ('2', '3');
+
 
 
 INSERT INTO animal(id, animal_sex, animal_type, breed, date_since_in_shelter, description, estimated_age, identification_number, is_available_forAWalk, is_available_to_adoption, is_purebred, name, shelter_id)

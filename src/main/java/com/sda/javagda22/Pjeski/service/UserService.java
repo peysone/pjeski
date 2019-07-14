@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -39,11 +40,21 @@ public class UserService implements UserServiceInterface {
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);
-        Role role = roleRepository.findByRole("USER");
+        Role role = roleRepository.findByRole("ROLE_USER");
         user.setRoles(new HashSet<Role>(Arrays.asList(role)));
 
         userRepository.save(user);
+    }
 
+    @Override
+    public List<User> findAll() {
+    List<User> userList = userRepository.findAll();
+        return userList;
+    }
+
+    @Override
+    public void updateUserPassword(String newPassword, String email) {
+        userRepository.updateUserPassword(bCryptPasswordEncoder.encode(newPassword), email);
     }
 
     public Optional<User> getUserById(Long userId) {
