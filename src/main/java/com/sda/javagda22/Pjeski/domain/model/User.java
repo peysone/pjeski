@@ -6,6 +6,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.Set;
@@ -26,6 +27,7 @@ public class User implements UserDetails {
     private String address;
     private String postalCode;
     @NotNull
+    @Email
     private String email;
 //    ---------------------------
     @NotNull

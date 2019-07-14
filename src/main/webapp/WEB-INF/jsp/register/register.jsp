@@ -43,6 +43,7 @@
             <td width="130" align="right"><s:message code="register.password"/></td>
             <td width="270" align="left"><sf:password path="password" size="28"/></td>
         </tr>
+
         <tr>
             <td colspan="2" align="center"><font color="red"><sf:errors path="password"/></font></td>
         </tr>

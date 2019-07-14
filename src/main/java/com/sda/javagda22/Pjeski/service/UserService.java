@@ -4,6 +4,7 @@ import com.sda.javagda22.Pjeski.domain.model.Role;
 import com.sda.javagda22.Pjeski.domain.model.User;
 import com.sda.javagda22.Pjeski.domain.repository.RoleRepository;
 import com.sda.javagda22.Pjeski.domain.repository.UserRepository;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +17,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-
+@Data
 @Service
 @Transactional
 public class UserService implements UserServiceInterface {
@@ -48,13 +49,18 @@ public class UserService implements UserServiceInterface {
 
     @Override
     public List<User> findAll() {
-    List<User> userList = userRepository.findAll();
+        List<User> userList = userRepository.findAll();
         return userList;
     }
 
     @Override
     public void updateUserPassword(String newPassword, String email) {
         userRepository.updateUserPassword(bCryptPasswordEncoder.encode(newPassword), email);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        userRepository.deleteById(id);
     }
 
     public Optional<User> getUserById(Long userId) {
@@ -70,4 +76,3 @@ public class UserService implements UserServiceInterface {
         return ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
     }
 }
-

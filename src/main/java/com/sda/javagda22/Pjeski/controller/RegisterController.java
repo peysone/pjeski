@@ -2,7 +2,6 @@ package com.sda.javagda22.Pjeski.controller;
 
 import com.sda.javagda22.Pjeski.domain.model.User;
 import com.sda.javagda22.Pjeski.service.UserServiceInterface;
-import com.sda.javagda22.Pjeski.utilities.PjeskiUtils;
 import com.sda.javagda22.Pjeski.validators.UserRegisterValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +10,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Constraint;
+import javax.validation.Payload;
 import javax.validation.Valid;
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
 import java.util.Locale;
+
+import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Controller
 @RequiredArgsConstructor
@@ -41,7 +49,7 @@ public class RegisterController {
     }
 
     @PostMapping("/adduser")
-    public String addUser(@Valid User user, BindingResult result, Model model, Locale locale) {
+    public String addUser(@Valid @ModelAttribute("user") User user, BindingResult result, Model model, Locale locale) {
 
         String returnPage;
 

@@ -7,7 +7,6 @@ import com.sda.javagda22.Pjeski.validators.ChangePasswordValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.data.domain.Page;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,9 +41,10 @@ public class UserController {
         return "user/profil";
 
     }
+
     @GetMapping("/edit-password")
     @Secured(value = {"ROLE_ADMIN", "ROLE_USER", "ROLE_ADMIN_SHELTER"})
-    public String editPassword(Model model){
+    public String editPassword(Model model) {
         String userName = UserUtilities.getLoggedUser();
         User user = userServiceInterface.findUserByEmail(userName);
         model.addAttribute("user", user);
@@ -54,7 +54,7 @@ public class UserController {
 
     @PostMapping("/update-pass")
     @Secured(value = {"ROLE_ADMIN", "ROLE_USER", "ROLE_ADMIN_SHELTER"})
-    public String updateUserPass(User user, BindingResult result, Model model, Locale locale){
+    public String updateUserPass(User user, BindingResult result, Model model, Locale locale) {
 
         String returnPage = null;
 
@@ -64,7 +64,7 @@ public class UserController {
 
         if (result.hasErrors()) {
             returnPage = "user/edit-password";
-        }else{
+        } else {
             userServiceInterface.updateUserPassword(user.getNewPassword(), user.getEmail());
             returnPage = "user/edit-password";
 
@@ -76,22 +76,22 @@ public class UserController {
 
     @GetMapping("/admin")
     @Secured(value = {"ROLE_ADMIN"})
-    public String showAdminPage(){
+    public String showAdminPage() {
         return "user/admin";
     }
 
     @GetMapping("/users")
     @Secured(value = {"ROLE_ADMIN"})
-    public String openAdminUsersPage(Model model){
-    List<User> userList = getAllUsers();
-    model.addAttribute("userList", userList);
+    public String openAdminUsersPage(Model model) {
+        List<User> userList = getAllUsers();
+        model.addAttribute("userList", userList);
         return "user/users";
     }
 
 
-    private List<User> getAllUsers(){
+    private List<User> getAllUsers() {
         List<User> userList = userServiceInterface.findAll();
-        for(User users : userList) {
+        for (User users : userList) {
 
             int nrRoli = users.getRoles().iterator().next().getId();
             users.setRoleNr(nrRoli);
@@ -99,5 +99,11 @@ public class UserController {
         return userList;
     }
 
+    @GetMapping("/delete/{id}")
+    public String deleteUserById(@PathVariable("id") Long id) {
+        userServiceInterface.deleteById(id);
+        return "redirect:/users";
+
+    }
 }
 

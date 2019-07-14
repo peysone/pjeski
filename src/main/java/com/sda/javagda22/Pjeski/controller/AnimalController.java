@@ -54,7 +54,7 @@ public class AnimalController {
 //        log.info("Created new animal {}", animal);
 //        return "redirect:/animal/list";
 //    }
-
+    @Secured(value = {"ROLE_ADMIN", "ROLE_SHELTER_ADMIN"})
     @GetMapping("/edit/{id}")
     public String editAnimalForm(@PathVariable("id") Long id, Model model) {
         Optional<Animal> maybeAnimal = animalService.getAnimalById(id);
@@ -65,7 +65,7 @@ public class AnimalController {
             return "animal/edit-form";
         }
     }
-
+    @Secured(value = {"ROLE_ADMIN", "ROLE_SHELTER_ADMIN"})
     @PostMapping("/edit/{id}")
     public String editAnimal(@ModelAttribute("animal") Animal animal) {
         animalService.editAnimal(animal);
@@ -80,7 +80,8 @@ public class AnimalController {
     }
 
 
-    @GetMapping("/delete{id}")
+    @Secured(value = {"ROLE_ADMIN", "ROLE_SHELTER_ADMIN"})
+    @GetMapping("/delete/{id}")
     public String deleteAnimalById(@PathVariable("id") Long id) {
         animalService.deleteById(id);
         return "redirect:/animal/list";

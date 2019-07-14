@@ -1,6 +1,7 @@
 package com.sda.javagda22.Pjeski.validators;
 
 import com.sda.javagda22.Pjeski.constants.PjeskiConstants;
+import com.sda.javagda22.Pjeski.controller.RegisterController;
 import com.sda.javagda22.Pjeski.domain.model.User;
 import com.sda.javagda22.Pjeski.domain.repository.UserRepository;
 import com.sda.javagda22.Pjeski.utilities.PjeskiUtils;
