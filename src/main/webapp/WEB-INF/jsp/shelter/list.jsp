@@ -33,8 +33,10 @@
         <%--<c:forEach items="${shelter.animals}" var="animal">--%>
             <%--${animal.animalType} ${animal.name}<br/>--%>
         <%--</c:forEach>--%>
-                ${shelter.animals.size()}
-
+                ${shelter.animals.size()} <br />
+    <sec:authorize access="hasRole('ROLE_ADMIN')">
+         <a href="/animal/create/${shelter.id}">Dodaj zwierzaka</a><br/>
+    </sec:authorize>
             <br/><br/>
             ------------------------------------------------
             <br/><br/>
