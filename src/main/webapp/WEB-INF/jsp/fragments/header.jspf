@@ -23,7 +23,8 @@
         <li> <a href="/"><s:message code="menu.mainPage"/></a></li>
         <sec:authorize access="hasRole('ROLE_ADMIN')">
             <li><a href="/admin"><s:message code="menu.adminPage"/></a></li>
-
+        </sec:authorize>
+        <sec:authorize access="hasRole('ROLE_ADMIN')">
         <li><a href="/shelter/create">Dodaj schronisko</a></li>
         </sec:authorize>
 

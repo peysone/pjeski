@@ -65,3 +65,4 @@ public class AnimalService {
         return animalRepository.findAnimalByShelterId(shelterId);
     }
 }
+

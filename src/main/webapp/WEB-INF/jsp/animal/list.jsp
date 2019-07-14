@@ -21,11 +21,12 @@
     <%--<c:if test="${empty shelters}">--%>
     <%--<h3>Nie znaleziono zwierząt w danym mieście!</h3>--%>
     <%--</c:if>--%>
+
     <c:forEach items="${animals}" var="animal">
         <a><b>${animal.animalType} ${animal.name} </b></a><br/>
         <a><b>Wiek: </b></a>${animal.estimatedAge} <br/>
         <a><b> Płeć: </b></a>${animal.animalSex} <br
-        <a><b> </b></a><img src="${animal.pic}" height="300" width="300"> <br/>
+        <a><b> Zdjęcie: </b></a><img src="${animal.pic}" height="300" width="300"> <br/>
         <a><b> Opis: </b></a>${animal.description} <br/>
         <a><b> Rasa: </b></a>${animal.breed} <br/>
         <a><b> Schronisko:</b></a> ${animal.shelter.name}<br/>
@@ -33,15 +34,10 @@
         <a><b> Do adopcji: </b></a>${animal.isAvailableToAdoption ? 'Tak' : 'Nie'}<br/>
         <a><b> Na spacer:</b></a> ${animal.isAvailableForAWalk ? 'Tak' : 'Nie'}<br/>
         <a href="/animal/visit/${animal.id}">Umów wizytę</a><br/>
-
-        <sec:authorize access="hasRole('ADMIN')">
+        <sec:authorize access = "hasRole('ADMIN')">
         <a href="/animal/edit/${animal.id}">Edycja zwierzaka</a>
-        </sec:authorize>
-
-        <sec:authorize access="hasRole('ADMIN')">
         <a href="/animal/delete/${animal.id}">Usun zwierzaka</a>
         </sec:authorize>
-
         ${shelter.animals.size()}
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
             <input type="hidden" name="cmd" value="_s-xclick" />

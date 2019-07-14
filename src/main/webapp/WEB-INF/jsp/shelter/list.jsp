@@ -18,20 +18,33 @@
         <h3>Nie znaleziono schroniska!</h3>
     </c:if>
     <c:forEach items="${shelters}" var="shelter">
-    <b> <a href="/shelter/animals/${shelter.id}">Schronisko ${shelter.name}<a/><b/><br/>
+        <a><b>Nazwa schroniska:</b></a> <a href="/shelter/animals/${shelter.id}">${shelter.name} <br/>
+        <%--<a><b>Adres:</b></a> ${shelter.address} <br/>--%>
+        <%--<a><b>Kod pocztowy: </b></a>${shelter.postalCode} <br/>--%>
         <a><b>Miasto:</b></a> ${shelter.city} <br/>
         <a><b> Numer telefonu:</b></a> ${shelter.telephone} <br/>
-        <a><b>Zwierzaki w schronisku:</b></a> ${shelter.animals.size()}<br/>
-        <br/>
+        <%--<a><b> Numer konta bankowego:</b></a> ${shelter.accountNumber} <br/>--%>
+        <br><br>
+
+        <a><b>Liczba zwierząt w schronisku:</b></a><br/>
+        <c:if test="${empty shelter.animals}">
+            <a style="font-size:16px"><b>Brak zwierząt w schronisku.</b></a>
+        </c:if>
+        <%--<c:forEach items="${shelter.animals}" var="animal">--%>
+            <%--${animal.animalType} ${animal.name}<br/>--%>
+        <%--</c:forEach>--%>
+                ${shelter.animals.size()}
+
+            <br/><br/>
+            ------------------------------------------------
+            <br/><br/>
+
+
         </c:forEach>
 </section>
 <%@include file="../fragments/footer.jspf" %>
 </body>
 </html>
-
-
-
-
 
 
 

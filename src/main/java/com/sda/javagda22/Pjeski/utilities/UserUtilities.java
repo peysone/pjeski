@@ -7,13 +7,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 public class UserUtilities {
 
     public static String getLoggedUser(){
-        String userName = null;
+        String username = null;
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if(!(authentication instanceof AnonymousAuthenticationToken)){
-            userName = authentication.getName();
+            username = authentication.getName();
         }
 
-        return userName;
+        return username;
     }
+
 }
