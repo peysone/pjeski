@@ -20,7 +20,6 @@
         <input type="submit" value="Szukaj!"/>
     </form:form>
 </section>
-<img src="https://media2.giphy.com/media/Vhhi3dsfcGCFUiyiKS/200w.gif?cid=790b76115d29b8d8336d7352414d2c84&rid=200w.gif"/>
 <div id="footer">
     <%!private static int visitCount = 0;%>
     <h2>Ilość odwiedzin strony: <%= ++visitCount%>
