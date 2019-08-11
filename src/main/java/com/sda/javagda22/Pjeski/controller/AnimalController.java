@@ -27,7 +27,7 @@ import java.util.Optional;
 @RequestMapping("/animal")
 @Slf4j
 public class AnimalController {
-    @Autowired
+
     private final AnimalService animalService;
     private final ShelterService shelterService;
     private final VisitService visitService;
@@ -57,9 +57,8 @@ public class AnimalController {
 //        log.info("Created new animal {}", animal);
 //        return "redirect:/animal/list";
 //    }
-
-    @GetMapping("/edit/{id}")
     @Secured(value = {"ROLE_ADMIN", "ROLE_SHELTER_ADMIN"})
+    @GetMapping("/edit/{id}")
     public String editAnimalForm(@PathVariable("id") Long id, Model model) {
         Optional<Animal> maybeAnimal = animalService.getAnimalById(id);
         if (!maybeAnimal.isPresent()) {
@@ -69,9 +68,8 @@ public class AnimalController {
             return "animal/edit-form";
         }
     }
-
-    @PostMapping("/edit/{id}")
     @Secured(value = {"ROLE_ADMIN", "ROLE_SHELTER_ADMIN"})
+    @PostMapping("/edit/{id}")
     public String editAnimal(@ModelAttribute("animal") Animal animal) {
         animalService.editAnimal(animal);
         return "redirect:/animal/list/1";
@@ -103,8 +101,8 @@ public class AnimalController {
     }
 
 
-    @GetMapping("/delete/{id}")
     @Secured(value = {"ROLE_ADMIN", "ROLE_SHELTER_ADMIN"})
+    @GetMapping("/delete/{id}")
     public String deleteAnimalById(@PathVariable("id") Long id) {
         animalService.deleteById(id);
         return "redirect:/animal/list/1";

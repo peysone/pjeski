@@ -115,5 +115,12 @@ public class UserController {
         }
         return pages;
     }
+
+    @GetMapping("/delete/{id}")
+    public String deleteUserById(@PathVariable("id") Long id) {
+        userServiceInterface.deleteById(id);
+        return "redirect:/users";
+
+    }
 }
 

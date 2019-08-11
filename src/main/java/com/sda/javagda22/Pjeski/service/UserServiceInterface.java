@@ -5,6 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import javax.jws.soap.SOAPBinding;
+import java.util.List;
 
 public interface UserServiceInterface extends UserDetailsService {
 
@@ -13,4 +15,5 @@ public interface UserServiceInterface extends UserDetailsService {
     Page<User> findAll(Pageable pageable);
     void updateUserPassword (String newPassword, String email);
 
+    public void deleteById(Long id);
 }
