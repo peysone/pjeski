@@ -10,6 +10,9 @@ import com.sda.javagda22.Pjeski.service.UserService;
 import com.sda.javagda22.Pjeski.service.VisitService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -24,7 +27,7 @@ import java.util.Optional;
 @RequestMapping("/animal")
 @Slf4j
 public class AnimalController {
-
+    @Autowired
     private final AnimalService animalService;
     private final ShelterService shelterService;
     private final VisitService visitService;
@@ -56,6 +59,7 @@ public class AnimalController {
 //    }
 
     @GetMapping("/edit/{id}")
+    @Secured(value = {"ROLE_ADMIN", "ROLE_SHELTER_ADMIN"})
     public String editAnimalForm(@PathVariable("id") Long id, Model model) {
         Optional<Animal> maybeAnimal = animalService.getAnimalById(id);
         if (!maybeAnimal.isPresent()) {
@@ -67,9 +71,28 @@ public class AnimalController {
     }
 
     @PostMapping("/edit/{id}")
+    @Secured(value = {"ROLE_ADMIN", "ROLE_SHELTER_ADMIN"})
     public String editAnimal(@ModelAttribute("animal") Animal animal) {
         animalService.editAnimal(animal);
-        return "redirect:/animal/list";
+        return "redirect:/animal/list/1";
+    }
+
+    @GetMapping("/list/{page}")
+    public String openAnimalListPageable(@PathVariable("page") int page, Model model){
+        Page<Animal> animalPages = getAllAnimalsPageable(page - 1);
+        int totalPages = animalPages.getTotalPages();
+        int currentPage = animalPages.getNumber();
+        List<Animal> animalList = animalPages.getContent();
+        model.addAttribute("totalPages", totalPages);
+        model.addAttribute("currentPage", currentPage + 1);
+        model.addAttribute("animals", animalList);
+        return "animal/list";
+    }
+
+    private Page<Animal> getAllAnimalsPageable(int page){
+        int elements = 3;
+        return animalService.findAll(PageRequest.of(page, elements));
+
     }
 
     @GetMapping("/list")
@@ -80,10 +103,11 @@ public class AnimalController {
     }
 
 
-    @GetMapping("/delete{id}")
+    @GetMapping("/delete/{id}")
+    @Secured(value = {"ROLE_ADMIN", "ROLE_SHELTER_ADMIN"})
     public String deleteAnimalById(@PathVariable("id") Long id) {
         animalService.deleteById(id);
-        return "redirect:/animal/list";
+        return "redirect:/animal/list/1";
     }
 
     @GetMapping("/find-by-city")

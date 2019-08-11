@@ -5,6 +5,8 @@ import com.sda.javagda22.Pjeski.domain.model.Shelter;
 import com.sda.javagda22.Pjeski.domain.model.animal.AnimalType;
 import com.sda.javagda22.Pjeski.domain.repository.AnimalRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,6 +44,10 @@ public class AnimalService {
         Optional<Shelter> shelter = shelterService.getShelterById(shelterId);
         shelter.ifPresent(animal::setShelter);
         animalRepository.save(animal);
+    }
+
+    public Page<Animal> findAll (Pageable pageable){
+        return animalRepository.findAll(pageable);
     }
 
     public List<Animal> getAnimalsByShelterCity(String city) {

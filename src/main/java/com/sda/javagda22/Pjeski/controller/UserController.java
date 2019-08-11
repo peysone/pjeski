@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -80,24 +81,39 @@ public class UserController {
         return "user/admin";
     }
 
-    @GetMapping("/users")
+    @GetMapping("/users/{page}")
     @Secured(value = {"ROLE_ADMIN"})
-    public String openAdminUsersPage(Model model){
-    List<User> userList = getAllUsers();
+    public String openAdminUsersPage(@PathVariable("page") int page, Model model){
+        Page<User> pages = getAllUsersPageable(page - 1);
+        int totalPages = pages.getTotalPages();
+        int currentPage = pages.getNumber();
+    List<User> userList = pages.getContent();
+    model.addAttribute("totalPages", totalPages);
+    model.addAttribute("currentPage", currentPage + 1);
     model.addAttribute("userList", userList);
         return "user/users";
     }
 
 
-    private List<User> getAllUsers(){
-        List<User> userList = userServiceInterface.findAll();
-        for(User users : userList) {
+//    private List<User> getAllUsers(){
+//        List<User> userList = userServiceInterface.findAll();
+//        for(User users : userList) {
+//
+//            int nrRoli = users.getRoles().iterator().next().getId();
+//            users.setRoleNr(nrRoli);
+//        }
+//        return userList;
+//    }
+
+    private Page<User> getAllUsersPageable(int page){
+        int elements = 3;
+        Page<User> pages = userServiceInterface.findAll(PageRequest.of(page, elements));
+        for(User users : pages) {
 
             int nrRoli = users.getRoles().iterator().next().getId();
             users.setRoleNr(nrRoli);
         }
-        return userList;
+        return pages;
     }
-
 }
 

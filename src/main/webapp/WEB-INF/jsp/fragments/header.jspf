@@ -34,7 +34,7 @@
 
         <li><a href="/shelter/list">Lista schronisk</a></li>
 
-        <li><a href="/animal/list">Lista zwierzaków</a></li>
+        <li><a href="/animal/list/1">Lista zwierzaków</a></li>
 
         <li><a href="/about">Twórcy</a></li>
 

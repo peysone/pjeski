@@ -19,6 +19,13 @@ VALUES ('5', '82731237', 'Kotkowa', 'Bydgoszcz', 'Bydgoszczowo', '80-180', '2032
     INSERT INTO user(user_id, active, address, city, email, first_name, last_name, password, postal_code)
     VALUES ('2', '1', 'Mickiewicza', 'Gdansk', 'ww@wp.pl', 'Bogdan', 'Miśkiewicz', '$2a$10$7OoVsugEZnz4KPq.9SpIu.rJgm3T.WQ0eNCw2wZB78xQkq63VygpC', '80-210');
 
+    INSERT INTO user(user_id, active, address, city, email, first_name, last_name, password, postal_code)
+    VALUES ('3', '1', 'Cebertowicza', 'Gdansk', 'aa@wp.pl', 'Adrian', 'Kdr', '$2a$10$7OoVsugEZnz4KPq.9SpIu.rJgm3T.WQ0eNCw2wZB78xQkq63VygpC', '80-210');
+
+    INSERT INTO user(user_id, active, address, city, email, first_name, last_name, password, postal_code)
+    VALUES ('4', '1', 'Cebertowicza', 'Gdansk', 'bb@wp.pl', 'Adrian', 'Kdr', '$2a$10$7OoVsugEZnz4KPq.9SpIu.rJgm3T.WQ0eNCw2wZB78xQkq63VygpC', '80-210');
+
+
     INSERT INTO role(role_id, role)
     VALUES ('1', 'ROLE_ADMIN');
 
@@ -34,6 +41,11 @@ VALUES ('5', '82731237', 'Kotkowa', 'Bydgoszcz', 'Bydgoszczowo', '80-180', '2032
 
     INSERT INTO user_role(user_id, role_id)
     VALUES ('2', '3');
+
+    INSERT INTO user_role(user_id, role_id)
+    VALUES ('3', '2');
+    INSERT INTO user_role(user_id, role_id)
+    VALUES ('4', '3');
 
 
 

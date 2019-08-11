@@ -22,10 +22,16 @@
     <%--<h3>Nie znaleziono zwierząt w danym mieście!</h3>--%>
     <%--</c:if>--%>
 
+    <div id="container_kafelka">
+
+
     <c:forEach items="${animals}" var="animal">
+        <div class="kafelka">
+
+
         <a><b>${animal.animalType} ${animal.name} </b></a><br/>
         <a><b>Wiek: </b></a>${animal.estimatedAge} <br/>
-        <a><b> Płeć: </b></a>${animal.animalSex} <br
+        <a><b> Płeć: </b></a>${animal.animalSex} <br>
         <a><b> Zdjęcie: </b></a><img src="${animal.pic}" height="300" width="300"> <br/>
         <a><b> Opis: </b></a>${animal.description} <br/>
         <a><b> Rasa: </b></a>${animal.breed} <br/>
@@ -46,9 +52,40 @@
             <img alt="" border="0" src="https://www.paypal.com/pl_PL/i/scr/pixel.gif" width="1" height="1" />
         </form>
 
+        </div>
 
-        <br><br>
+
+
     </c:forEach>
+
+
+        <div style="clear: both">
+            <table width="1000" border="0" cellpadding="6" cellspacing="0" bgcolor="#ffddcc" align="center">
+                <tr>
+                    <td width="300" align="left">
+                        <s:message code="info.page"/> ${currentPage} <s:message code="info.from"/> ${totalPages}
+                    </td>
+                    <td align="right">
+
+                        <c:if test="${currentPage > 1}">
+                            <input type="button"
+                                   onclick="window.location.href='${pageContext.request.contextPath}/animal/list/${currentPage - 1}'"
+                                   value="<s:message code="link.poprzedni"/>"/>&nbsp;&nbsp;
+                        </c:if>
+
+                        <c:if test="${currentPage < totalPages}">
+                            <input type="button"
+                                   onclick="window.location.href='${pageContext.request.contextPath}/animal/list/${currentPage + 1}'"
+                                   value="<s:message code="link.nastepny"/>"/>
+                        </c:if>
+
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
 </section>
 <%@include file="../fragments/footer.jspf" %>
 </body>

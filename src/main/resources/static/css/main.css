@@ -35,3 +35,19 @@ html, body {
     padding: 10px 10px 10px 10px;
 }
 
+#container_kafelka {
+
+    text-align: center;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    width: 100%;
+}
+
+.kafelka{
+
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+
+}
+

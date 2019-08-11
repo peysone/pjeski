@@ -14,7 +14,7 @@
 <h2><s:message code="menu.adminPage"/></h2>
 
 <sec:authorize access="hasRole('ROLE_ADMIN')">
-    <li><a href="/users">Użytkownicy</a>&nbsp;&nbsp;</li>
+    <li><a href="/users/1">Użytkownicy</a>&nbsp;&nbsp;</li>
  </sec:authorize>
 <%@include file="../fragments/footer.jspf" %>
 </body>
