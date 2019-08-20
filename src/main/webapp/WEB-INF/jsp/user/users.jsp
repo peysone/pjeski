@@ -72,9 +72,9 @@
 				<c:when test="${u.roleNr == 1 }">
 					<font color="green"><s:message code="word.admin"/></font>
 				</c:when>
-				<%--<c:when test="${u.roleNr == 1 }">--%>
-					<%--<font color="green"><s:message code="word.admin"/></font>--%>
-				<%--</c:when> tu dopisujemy nowe role np admin_schroniska--%>
+				<c:when test="${u.roleNr == 2 }">
+					<font color="blue"><s:message code="word.adminShelter"/></font>
+				</c:when>
 				<c:otherwise>
 					<s:message code="word.user"/>
 				</c:otherwise>

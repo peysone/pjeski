@@ -60,8 +60,22 @@ public class UserService implements UserServiceInterface {
     }
 
     @Override
+    public User findUserById(Long id) {
+        User user = userRepository.findUserById(id);
+        return user;
+    }
+
+    @Override
+    public void updateUser(Long id, int roleNr, int active) {
+        userRepository.updateUserActivity(active, id);
+        userRepository.updateUserRole(roleNr, id);
+    }
+
+    @Override
     public void deleteById(Long id) {
-        userRepository.deleteById(id);
+
+        userRepository.deleteUserFromUserRole(id);
+        userRepository.deleteUserFromUser(id);
     }
 
     public Optional<User> getUserById(Long userId) {

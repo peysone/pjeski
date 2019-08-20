@@ -14,6 +14,8 @@ public interface UserServiceInterface extends UserDetailsService {
     public void saveUser(User user);
     Page<User> findAll(Pageable pageable);
     void updateUserPassword (String newPassword, String email);
+    User findUserById (Long id);
+    void updateUser (Long id, int roleNr, int active);
 
-    public void deleteById(Long id);
+    void deleteById(Long id);
 }

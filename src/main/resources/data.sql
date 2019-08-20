@@ -30,10 +30,10 @@ VALUES ('5', '82731237', 'Kotkowa', 'Bydgoszcz', 'Bydgoszczowo', '80-180', '2032
     VALUES ('1', 'ROLE_ADMIN');
 
     INSERT INTO role(role_id, role)
-    VALUES ('2', 'ROLE_USER');
+    VALUES ('3', 'ROLE_USER');
 
     INSERT INTO role(role_id, role)
-    VALUES ('3', 'ROLE_ADMIN_SHELTER');
+    VALUES ('2', 'ROLE_ADMIN_SHELTER');
 
 
     INSERT INTO user_role(user_id, role_id)
