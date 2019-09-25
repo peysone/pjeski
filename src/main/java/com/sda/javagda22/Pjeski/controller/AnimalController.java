@@ -4,6 +4,8 @@ import com.sda.javagda22.Pjeski.domain.model.FilterForm;
 import com.sda.javagda22.Pjeski.domain.model.User;
 import com.sda.javagda22.Pjeski.domain.model.Visit;
 import com.sda.javagda22.Pjeski.domain.model.animal.Animal;
+import com.sda.javagda22.Pjeski.domain.model.animal.PhotoDAO;
+import com.sda.javagda22.Pjeski.domain.model.animal.PhotoDTO;
 import com.sda.javagda22.Pjeski.service.AnimalService;
 import com.sda.javagda22.Pjeski.service.ShelterService;
 import com.sda.javagda22.Pjeski.service.UserService;
@@ -18,9 +20,16 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
+
+import static org.springframework.util.StreamUtils.BUFFER_SIZE;
 
 @Controller
 @RequiredArgsConstructor
@@ -32,6 +41,7 @@ public class AnimalController {
     private final ShelterService shelterService;
     private final VisitService visitService;
     private final UserService userService;
+    private final PhotoDAO photoDAO;
 
     // Szuca - od teraz animala dodajemy od razu do schroniska, ponieważ bez sensu jest dodawać go bez przypisania do schroniska
     //więc posłużyłam sie kodem z kliniki i stworzyłam coś takiego i tu tylko cerate jest zmienione
@@ -45,10 +55,31 @@ public class AnimalController {
 
     @PostMapping("/create/{shelterId}")
     @Secured(value = {"ROLE_ADMIN"})
-    public String createAnimal(@ModelAttribute("animal") Animal animal, @PathVariable("shelterId") Long shelterId) {
+    public ModelAndView createAnimal(@ModelAttribute("animal") Animal animal, @PathVariable("shelterId") Long shelterId, @RequestParam("files") MultipartFile files) {
         animalService.createAnimal(animal, shelterId);
+        ModelAndView modelAndView = new ModelAndView();
 
-        return "redirect:/shelter/list";
+        PhotoDTO photoDTO = new PhotoDTO();
+        photoDTO.setFileName(files.getOriginalFilename());
+        photoDTO.setPath("/resources/static/photos/");
+        photoDTO.setAnimal(animal);
+        modelAndView.setViewName("animal/success");
+
+        try {
+            animalService.saveImage(files, photoDTO);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            modelAndView.setViewName("error");
+            return modelAndView;
+        }
+
+//        return "redirect:/animal/list/1";
+
+        modelAndView.addObject("photoDTO", photoDTO);
+        modelAndView.addObject("animal", animal);
+
+        return modelAndView;
     }
 
 //    @PostMapping("/create")
@@ -76,14 +107,18 @@ public class AnimalController {
     }
 
     @GetMapping("/list/{page}")
-    public String openAnimalListPageable(@PathVariable("page") int page, Model model){
+    public String openAnimalListPageable(@PathVariable("page") int page, Model model, Animal animal){
         Page<Animal> animalPages = getAllAnimalsPageable(page - 1);
         int totalPages = animalPages.getTotalPages();
         int currentPage = animalPages.getNumber();
         List<Animal> animalList = animalPages.getContent();
+        String firstPhoto = photoDAO.getFirstPhoto();
+//        zamysł był taki żeby ten string to była nazwa pierwszego zdjęcia animala do wyświetlenia na liście.
+//        Wyszło że pobiera pierwsze zdjęcie z tabeli PhotoDTO niezależnie od animala
         model.addAttribute("totalPages", totalPages);
         model.addAttribute("currentPage", currentPage + 1);
         model.addAttribute("animals", animalList);
+        model.addAttribute("firstPhoto", firstPhoto);
         return "animal/list";
     }
 
@@ -99,6 +134,50 @@ public class AnimalController {
         model.addAttribute("animals", animals);
         return "animal/list";
     }
+
+//    @GetMapping("/upload")
+//    public String uploadFile(){
+//        return "/animal/upload";
+//    }
+
+//    @RequestMapping(value="/upload", method=RequestMethod.POST)
+//    public String handleFileUpload(@RequestParam("plik") MultipartFile file){
+//        if (!file.isEmpty()) {
+//            try { UUID uuid = UUID.randomUUID();
+//                String filename = "/uploads/upload_"+uuid.toString();
+//                byte[] bytes = file.getBytes();
+//                File fsFile = new File(filename);
+//                fsFile.createNewFile();
+//                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(fsFile));
+//                stream.write(bytes);
+//                stream.close();
+////                logger.info("File {} has been successfully uploaded as {}", new Object[] {file.getOriginalFilename(), filename});
+//            } catch (Exception e) {
+////                logger.error("File has not been uploaded", e);
+//            }
+//        } else {
+////            logger.error("Uploaded file is empty");
+//        } return "/animal/upload";
+//    }
+
+//    @RequestMapping(method = RequestMethod.GET)
+//    public void pobierz(@PathVariable("attchamentId") Long attachmentId, HttpServletResponse response)
+//            throws IOException {
+//        Attachement attachement = ...; //pobierz na podstawie id
+//        FileInputStream inputStream = new FileInputStream(attachment.getFileLocation());
+//        response.setContentType(attachment.getMimeType());
+//        response.setContentLength(attachment.getSize());
+//        String headerValue = String.format("attachment; filename=\"%s\"", attachment.getOriginalFilename());
+//        response.setHeader("Content-Disposition", headerValue);
+//        OutputStream outStream = response.getOutputStream();
+//        byte[] buffer = new byte[BUFFER_SIZE];
+//        int bytesRead = -1; // czytamy w pętli po fragmencie, który następnie przepisujemy do strumienia wyjściowego
+//        while ((bytesRead = inputStream.read(buffer)) != -1) {
+//            outStream.write(buffer, 0, bytesRead);
+//        }
+//        inputStream.close();
+//        outStream.close();
+//    }
 
 
     @Secured(value = {"ROLE_ADMIN", "ROLE_SHELTER_ADMIN"})

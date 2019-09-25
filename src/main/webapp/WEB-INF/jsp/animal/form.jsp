@@ -19,9 +19,8 @@
     chyba że najpierw sprawdzi czy już jest schronisko - rozumiem że to menu jest tylko dla nas żeby sprawdzić czy
     wszystko działą</p>
 <%--@elvariable id="animal" type="com.sda.javagda22.Pjeski.domain.model.animal.Animal"--%>
-<form:form action="/animal/create/${shelterId}" method="POST" modelAttribute="animal">
+<form:form action="/animal/create/${shelterId}" method="POST" modelAttribute="animal" enctype="multipart/form-data">
     Numer identyfikacyjny: <form:input path="identificationNumber"/> <br/>
-    Zdjęcię: <form:input path="pic"/> <br/>
     Opis: <form:input path="description"/> <br/>
     Imię: <form:input path="name"/> <br/>
     Wiek: <form:input path="estimatedAge"/> <br/>
@@ -45,7 +44,7 @@
     <%--dodawanie obrazka czysty html--%>
     <%--<form action="..." enctype="multipart/form-data">--%>
     <%--<input type="file" name="nazwa" accept="image/jpeg,image/gif">--%>
-    <%--</form>--%>
+    Zdjęcie: <input type="file" name="files" multiple/>
     <input type="submit" value="Dodaj"/>
 </form:form>
 <%

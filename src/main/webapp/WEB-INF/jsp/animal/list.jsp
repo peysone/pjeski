@@ -32,7 +32,23 @@
         <a><b>${animal.animalType} ${animal.name} </b></a><br/>
         <a><b>Wiek: </b></a>${animal.estimatedAge} <br/>
         <a><b> Płeć: </b></a>${animal.animalSex} <br>
-        <a><b> Zdjęcie: </b></a><img src="${animal.pic}" height="300" width="300"> <br/>
+            <c:if test="${empty animal.photos}">
+                <a style="font-size:16px"><b>.</b></a>
+            </c:if>
+            <c:forEach var="photoDTO" items="${animal.photos}">
+                <a>${photoDTO.animal.id}</a>
+                <a>${photoDTO.photoId}</a>
+                <%--dla każdego zdjęcia pobierz wartość photoDTO i wyświetl nazwę
+                a ma być wyświetl tylko pierwszą nazwę--%>
+
+                <a><img src="<c:url value="/resources/photos/thumbnails/${firstPhoto}"/>"/></a><br/>
+
+                <%--<img src="/resources/photos/thumbnails/${photoDTO.fileName}"> <br/>--%>
+            </c:forEach>
+
+        <%--<a><b> Zdjęcie: </b></a><img src="/photos/${animal.photos.get(0)}" height="300" width="300"> <br/>--%>
+            <a><b>Ilość zdjęć:</b></a>${animal.photos.size()}
+        <%--<img src="/resources/photos/thumbnails/${photoDTO.fileName}"/>--%>
         <a><b> Opis: </b></a>${animal.description} <br/>
         <a><b> Rasa: </b></a>${animal.breed} <br/>
         <a><b> Schronisko:</b></a> ${animal.shelter.name}<br/>
@@ -44,7 +60,7 @@
         <a href="/animal/edit/${animal.id}">Edycja zwierzaka</a>
         <a href="/animal/delete/${animal.id}">Usun zwierzaka</a>
         </sec:authorize>
-        ${shelter.animals.size()}
+        <%--${shelter.animals.size()}--%>
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
             <input type="hidden" name="cmd" value="_s-xclick" />
             <input type="hidden" name="hosted_button_id" value="ZGSZZ82JYVZGJ" />

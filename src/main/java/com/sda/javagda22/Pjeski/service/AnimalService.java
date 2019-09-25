@@ -3,12 +3,19 @@ package com.sda.javagda22.Pjeski.service;
 import com.sda.javagda22.Pjeski.domain.model.animal.Animal;
 import com.sda.javagda22.Pjeski.domain.model.Shelter;
 import com.sda.javagda22.Pjeski.domain.model.animal.AnimalType;
+import com.sda.javagda22.Pjeski.domain.model.animal.IPhotoDAO;
+import com.sda.javagda22.Pjeski.domain.model.animal.PhotoDTO;
 import com.sda.javagda22.Pjeski.domain.repository.AnimalRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +25,9 @@ public class AnimalService {
 
     private final AnimalRepository animalRepository;
     private final ShelterService shelterService;
+
+    @Autowired
+    IPhotoDAO photoDAO;
 
 //    public void createAnimal(Animal animal) {
 //        animalRepository.save(animal);
@@ -70,5 +80,12 @@ public class AnimalService {
     public List<Animal> getAnimalsByShelterId(Long shelterId) {
         return animalRepository.findAnimalByShelterId(shelterId);
     }
+
+    public void saveImage(MultipartFile files, PhotoDTO photoDTO) throws Exception{
+        photoDAO.save(photoDTO);
+        photoDAO.savePhotoImage(photoDTO, files);
+
+    }
+
 }
 

@@ -29,9 +29,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private BCryptPasswordEncoder bcp;
 
     @Autowired
-    private UserService userService;
-
-    @Autowired
     private DataSource ds;
 
     @Value("${spring.queries.users-query}")
@@ -41,7 +38,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private String rolesQuery;
 
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService)
+//        auth.userDetailsService(userService)
+//                .passwordEncoder(bcp);
+
+
+
+        auth.jdbcAuthentication().usersByUsernameQuery(usersQuery)
+                .authoritiesByUsernameQuery(rolesQuery).dataSource(ds)
                 .passwordEncoder(bcp);
     }
 
@@ -59,11 +62,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/shelter/find-by-city").permitAll()
                 .antMatchers("/src/main/resources/static/images/**").permitAll()
 //                .antMatchers("/admin").hasAuthority("ROLE_ADMIN")
-//                .antMatchers("/shelter/create").hasAuthority("ADMIN")
+//                .antMatchers("/shelter/create").hasAuthority("ROLE_ADMIN")
 //                .antMatchers("/profil").permitAll()
                 .antMatchers("/about").permitAll()
                 .antMatchers("/register/**").permitAll()
                 .antMatchers("/adduser").permitAll()
+                .antMatchers("/activation/**").permitAll()
 //                .antMatchers("/animal/**").permitAll()
 //                .antMatchers("/user/**").permitAll()
                 .anyRequest().authenticated()

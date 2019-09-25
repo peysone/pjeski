@@ -18,4 +18,6 @@ public interface UserServiceInterface extends UserDetailsService {
     void updateUser (Long id, int roleNr, int active);
 
     void deleteById(Long id);
+
+    void updateUserActivation(int activeCode, String activationCode);
 }

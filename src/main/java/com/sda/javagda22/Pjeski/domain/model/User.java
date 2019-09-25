@@ -38,6 +38,8 @@ public class User implements UserDetails {
     private int roleNr;
     @NotNull
     private int active;
+    @Column(name="activation_code")
+    private String activationCode;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_role",

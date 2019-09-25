@@ -41,7 +41,7 @@ public class UserService implements UserServiceInterface {
     @Override
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setActive(1);
+        user.setActive(0);
         Role role = roleRepository.findByRole("ROLE_USER");
         user.setRoles(new HashSet<Role>(Arrays.asList(role)));
 
@@ -76,6 +76,11 @@ public class UserService implements UserServiceInterface {
 
         userRepository.deleteUserFromUserRole(id);
         userRepository.deleteUserFromUser(id);
+    }
+
+    @Override
+    public void updateUserActivation(int activeCode, String activationCode) {
+        userRepository.updateActivation(activeCode, activationCode);
     }
 
     public Optional<User> getUserById(Long userId) {
